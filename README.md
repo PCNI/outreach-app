@@ -1,4 +1,8 @@
-outreach-app
-============
+OpenHMIS Outreach Mobile Web App
+================================
 
-Mobile outreach application for use by US Dept. of Housing and Urban Development Homeless Management Information Systems
+Outreach application for use by US Dept. of Housing and Urban
+Development Homeless Management Information Systems.
+
+This mobile web application is still in the design phase; please see
+the [design document](outreach-app-design.docx) for more information.
