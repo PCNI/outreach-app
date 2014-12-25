@@ -1,0 +1,2707 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+    <changeSet author="Jerald" id="1418380671487-1">
+        <createTable tableName="Client">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="FirstName" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MiddleName" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LastName" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NameDataQuality" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SSN" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SSNDataQuality" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DOB" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Gender" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="OtherGender" type="VARCHAR(45)"/>
+            <column name="Ethnicity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VeteranStatus" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="imageUrl" type="VARCHAR(1024)"/>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="DateOfEngagement">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ProjectEntryID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DateOfEngagement" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="Disabilities">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ProjectEntryID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DisabilityType" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DisabilityResponse" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IndefiniteAndImpairs" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DocumentationOnFile" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ReceivingServices" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PATHHowConfirmed" type="INT"/>
+            <column name="PATHSMIInformation" type="INT"/>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="Enrollment">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="PersonalID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ProjectID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EntryDate" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HouseholdID" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RelationshipToHoH" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ResidencePrior" type="INT"/>
+            <column name="OtherResidencePrior" type="VARCHAR(45)"/>
+            <column name="ResidencePriorLengthOfStay" type="INT"/>
+            <column name="ContinuouslyHomelessOneYear" type="INT"/>
+            <column name="TimesHomelessPastThreeYears" type="INT"/>
+            <column name="MonthsHomelessPastThreeYears" type="INT"/>
+            <column name="MonthsHomelessThisTime" type="INT"/>
+            <column name="YearsHomeless" type="INT"/>
+            <column name="StatusDocumented" type="INT"/>
+            <column name="DisablingCondition" type="INT"/>
+            <column name="HousingStatus" type="INT"/>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="Organization">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="OrganizationName" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="OrganizationCommonName" type="VARCHAR(45)"/>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="PATHStatus">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ProjectEntryID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DateOfStatus" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ClientEnrolledInPATH" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ReasonNotEnrolled" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="Project">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="OrganizationID" type="INT"/>
+            <column name="ContinuumProject" type="INT"/>
+            <column name="ProjectType" type="INT"/>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="ReferralSource">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ProjectEntryID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ReferralSource" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CountOutreachReferralApproached" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="ORole">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>            
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="Services">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ProjectEntryID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DateProvided" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RecordType" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="OtherTypeProvided" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SubTypeProvided" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="OUser">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ProjectID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="token" type="VARCHAR(256)"/>
+            <column name="tokenExpiry" type="datetime"/>
+            <column name="firstName" type="VARCHAR(256)"/>
+            <column name="middleName" type="VARCHAR(256)"/>
+            <column name="lastName" type="VARCHAR(256)"/>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="VeteranInfo">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="PersonalID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="YearEnteredService" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="WorldWarII" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="KoreanWar" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VietnamWar" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DesertStorm" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AfghanistanOEF" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IraqOIF" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IraqOND" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="OtherTheatre" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MilitaryBranch" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DischargeStatus" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint columnNames="name" constraintName="name_UNIQUE" deferrable="false" disabled="false" initiallyDeferred="false" tableName="ORole"/>
+        <addForeignKeyConstraint baseColumnNames="ProjectEntryID" baseTableName="Disabilities" constraintName="fk_disabilities_ProjectEntryID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Enrollment"/>
+        <addForeignKeyConstraint baseColumnNames="ProjectEntryID" baseTableName="DateOfEngagement" constraintName="fk_doe_ProjectEntryID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Enrollment"/>
+        <addForeignKeyConstraint baseColumnNames="PersonalID" baseTableName="Enrollment" constraintName="fk_enrollment_personalD" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Client"/>
+        <addForeignKeyConstraint baseColumnNames="ProjectID" baseTableName="Enrollment" constraintName="fk_enrollment_projectID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Project"/>
+        <addForeignKeyConstraint baseColumnNames="ProjectEntryID" baseTableName="PATHStatus" constraintName="fk_pathstatus_ProjectEntryID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Enrollment"/>
+        <addForeignKeyConstraint baseColumnNames="OrganizationID" baseTableName="Project" constraintName="fk_project_organization" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Organization"/>
+        <addForeignKeyConstraint baseColumnNames="ProjectEntryID" baseTableName="ReferralSource" constraintName="fk_referralsrc_ProjectEntryID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Enrollment"/>
+        <addForeignKeyConstraint baseColumnNames="ProjectEntryID" baseTableName="Services" constraintName="fk_services_ProjectEntryID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Enrollment"/>
+        <addForeignKeyConstraint baseColumnNames="ProjectID" baseTableName="OUser" constraintName="fk_user_project" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Project"/>
+        <addForeignKeyConstraint baseColumnNames="role" baseTableName="OUser" constraintName="fk_user_role" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORole"/>
+        <addForeignKeyConstraint baseColumnNames="PersonalID" baseTableName="VeteranInfo" constraintName="fk_veteraninfo_personalid" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Client"/>
+        
+        <sql>INSERT INTO ORole(name, dateCreated, userID, isDeleted) values('User', now(), 0,0)</sql>
+        <sql>INSERT INTO ORole(name, dateCreated, userID, isDeleted) values('Admin', now(), 0,0)</sql>
+        <sql>INSERT INTO Organization(OrganizationName, OrganizationCommonName, dateCreated, userID, isDeleted) values('Default', 'Default',now(), 0,0)</sql>
+        <sql>INSERT INTO Project(OrganizationID, ContinuumProject, ProjectType, dateCreated, userID, isDeleted) values((SELECT ID from Organization where OrganizationName='Default'), 1,1,now(), 0,0)</sql>
+    </changeSet>
+    <changeSet author="Jerald" id="20141217-1">
+        <addColumn tableName="Client">
+            <column name="NameSuffix" type="VARCHAR(45)" beforeColumn="NameDataQuality"/>
+        </addColumn>
+        <addColumn tableName="Client">
+            <column name="DOBDataQuality" type="INT" beforeColumn="Gender"/>
+        </addColumn>
+        <addColumn tableName="Client">
+            <column name="Race" type="INT" beforeColumn="VeteranStatus"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Jerald" id="20141218-1">
+        <createTable tableName="LOV">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="LOVType" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DisplayName" type="VARCHAR(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ValueString" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="1"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Full address reported"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="1"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Incomplete or estimated address reported"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="1"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="1"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="1"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="2"/>
+            <column name="ValueString" value="5"/>
+            <column name="DisplayName" value="Physical Disability"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="2"/>
+            <column name="ValueString" value="6"/>
+            <column name="DisplayName" value="Developmental Disability"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="2"/>
+            <column name="ValueString" value="7"/>
+            <column name="DisplayName" value="Chronic Health Condition"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="2"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="HIV/AIDS"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="2"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Mental Health Problem"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="2"/>
+            <column name="ValueString" value="10"/>
+            <column name="DisplayName" value="Substance Abuse"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="3"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Full DOB reported"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="3"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Approximate or partial DOB reported"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="3"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="3"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="3"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="4"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Full-timed"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="4"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Part-time"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="4"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Seasonal / sporadic (including day labor)"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="4"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="5"/>
+            <column name="ValueString" value="0"/>
+            <column name="DisplayName" value="Non-Hispanic/Non-Latino"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="5"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Hispanic/Latino"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="5"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="5"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="5"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="6"/>
+            <column name="ValueString" value="0"/>
+            <column name="DisplayName" value="No"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="6"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Yes"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="6"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="6"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="6"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="7"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Out of age range"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="7"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Ward of the State – Immediate Reunification"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="7"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Ward of the Criminal Justice System – Immediate Reunification"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="7"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="Other"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="7"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="8"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Male"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="8"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Transgender male to female"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="8"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Transgender female to male"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="8"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="Other"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="8"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="8"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="8"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="9"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Households without children"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="9"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Households with at least one adult and one child"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="9"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="Households with only children"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="10"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Category 1 - Homeless"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="10"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Category 2 - At imminent risk of losing housing"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="10"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="At-risk of homelessness"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="10"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="Stably Housed"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="10"/>
+            <column name="ValueString" value="5"/>
+            <column name="DisplayName" value="Category 3 - Homeless only under other federal statutes"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="10"/>
+            <column name="ValueString" value="6"/>
+            <column name="DisplayName" value="Category 4 - Fleeing domestic violence"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="10"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="10"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="10"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="11"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Army"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="11"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Air Force"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="11"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Navy"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="11"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="Marines"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="11"/>
+            <column name="ValueString" value="6"/>
+            <column name="DisplayName" value="Coast Guard"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="11"/>
+            <column name="ValueString" value="7"/>
+            <column name="DisplayName" value="Other"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="11"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="11"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="11"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="100"/>
+            <column name="DisplayName" value="0 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="101"/>
+            <column name="DisplayName" value="1 month"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="102"/>
+            <column name="DisplayName" value="2 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="103"/>
+            <column name="DisplayName" value="3 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="104"/>
+            <column name="DisplayName" value="4 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="105"/>
+            <column name="DisplayName" value="5 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="106"/>
+            <column name="DisplayName" value="6 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="107"/>
+            <column name="DisplayName" value="7 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="108"/>
+            <column name="DisplayName" value="8 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="109"/>
+            <column name="DisplayName" value="9 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="110"/>
+            <column name="DisplayName" value="10 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="111"/>
+            <column name="DisplayName" value="11 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="112"/>
+            <column name="DisplayName" value="12 months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="7"/>
+            <column name="DisplayName" value="Other"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="12"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="13"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Full name reported"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="13"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Partial, street name, or code name reported"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="13"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="13"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="13"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="14"/>
+            <column name="ValueString" value="0"/>
+            <column name="DisplayName" value="No"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="14"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Yes"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="14"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="15"/>
+            <column name="ValueString" value="0"/>
+            <column name="DisplayName" value="No"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="15"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Yes"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="15"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="15"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="16"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Unconfirmed; presumptive or self-report"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="16"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Confirmed through assessment and clinical evaluation"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="16"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Confirmed by prior evaluation or clinical records"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="16"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="17"/>
+            <column name="ValueString" value="0"/>
+            <column name="DisplayName" value="No"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="17"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Unconfirmed; presumptive or self-report"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="17"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Confirmed through assessment and clinical evaluation"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="17"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Confirmed by prior evaluation or clinical records"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="17"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="17"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="17"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Emergency Shelter"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Transitional Housing"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="PH - Permanent Supportive Housing (disability required for entry)"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="Street Outreach"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="6"/>
+            <column name="DisplayName" value="Services Only"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="7"/>
+            <column name="DisplayName" value="Other"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Safe Haven"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="PH – Housing Only"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="10"/>
+            <column name="DisplayName" value="PH – Housing with Services (no disability required for entry)"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="11"/>
+            <column name="DisplayName" value="Day Shelter"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="12"/>
+            <column name="DisplayName" value="Homelessness Prevention"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="13"/>
+            <column name="DisplayName" value="PH - Rapid Re-Housing"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="18"/>
+            <column name="ValueString" value="14"/>
+            <column name="DisplayName" value="Coordinated Assessment"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="19"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="American Indian or Alaska Native"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="19"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Asian"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="19"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Black or African American"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="19"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="Native Hawaiian or Other Pacific Islander"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="19"/>
+            <column name="ValueString" value="5"/>
+            <column name="DisplayName" value="White"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="19"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="19"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="19"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="20"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Client was found ineligible for PATH"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="20"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Client was not enrolled for other reason(s)"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="20"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="21"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Attained"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="21"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Not attained"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="21"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Unknown"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Self-Referral"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Individual: Parent/Guardian"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Individual: Relative or Friend"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="Individual: Other Adult or Youth"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="5"/>
+            <column name="DisplayName" value="Individual: Partner/Spouse"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="6"/>
+            <column name="DisplayName" value="Individual: Foster Parent"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="7"/>
+            <column name="DisplayName" value="Outreach Project: FYSB"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="10"/>
+            <column name="DisplayName" value="Outreach Project: Other"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="11"/>
+            <column name="DisplayName" value="Temporary Shelter: FYSB Basic Center Project"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="12"/>
+            <column name="DisplayName" value="Temporary Shelter: Other Youth Only Emergency Shelter"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="13"/>
+            <column name="DisplayName" value="Temporary Shelter: Emergency Shelter for Families"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="14"/>
+            <column name="DisplayName" value="Temporary Shelter: Emergency Shelter for Individuals"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="15"/>
+            <column name="DisplayName" value="Temporary Shelter: Domestic Violence Shelter"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="16"/>
+            <column name="DisplayName" value="Temporary Shelter: Safe Place"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="17"/>
+            <column name="DisplayName" value="Temporary Shelter: Other"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="18"/>
+            <column name="DisplayName" value="Residential Project: FYSB Transitional Living Project"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="19"/>
+            <column name="DisplayName" value="Residential Project: Other Transitional Living Project"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="20"/>
+            <column name="DisplayName" value="Residential Project: Group Home"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="21"/>
+            <column name="DisplayName" value="Residential Project: Independent Living Project"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="22"/>
+            <column name="DisplayName" value="Residential Project: Job Corps"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="23"/>
+            <column name="DisplayName" value="Residential Project: Drug Treatment Center"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="24"/>
+            <column name="DisplayName" value="Residential Project: Treatment Center"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="25"/>
+            <column name="DisplayName" value="Residential Project: Educational Institute"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="26"/>
+            <column name="DisplayName" value="Residential Project: Other Agency project"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="27"/>
+            <column name="DisplayName" value="Residential Project: Other Project"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="28"/>
+            <column name="DisplayName" value="Hotline: National Runaway Switchboard"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="29"/>
+            <column name="DisplayName" value="Hotline: Other"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="30"/>
+            <column name="DisplayName" value="Other Agency: Child Welfare/CPS"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="31"/>
+            <column name="DisplayName" value="Other Agency: Non-Residential Independent Living Project"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="32"/>
+            <column name="DisplayName" value="Other Project Operated by your Agency"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="33"/>
+            <column name="DisplayName" value="Other Youth Services Agency"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="34"/>
+            <column name="DisplayName" value="Juvenile Justice"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="35"/>
+            <column name="DisplayName" value="Law Enforcement/ Police"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="36"/>
+            <column name="DisplayName" value="Religious Organization"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="37"/>
+            <column name="DisplayName" value="Mental Hospital"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="38"/>
+            <column name="DisplayName" value="School"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="39"/>
+            <column name="DisplayName" value="Other Organization"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="22"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="23"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Self (head of household)"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="23"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Head of household's child"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="23"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Head of household's spouse or partner"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="23"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="Head of household's other relation member (other relation to head of household)"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="23"/>
+            <column name="ValueString" value="5"/>
+            <column name="DisplayName" value="Other: non-relation member"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Emergency shelter, including hotel or motel paid for with emergency shelter voucher"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Transitional housing for homeless persons (including homeless youth)"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="Permanent housing for formerly homeless persons (such as: CoC project; HUD legacy programs; or HOPWA PH)"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="Psychiatric hospital or other psychiatric facility"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="5"/>
+            <column name="DisplayName" value="Substance abuse treatment facility or detox center"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="6"/>
+            <column name="DisplayName" value="Hospital or other residential non-psychiatric medical facility"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="7"/>
+            <column name="DisplayName" value="Jail, prison or juvenile detention facility"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="12"/>
+            <column name="DisplayName" value="Staying or living in a family member's room, apartment or house"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="13"/>
+            <column name="DisplayName" value="Staying or living in a friend's room, apartment or house"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="14"/>
+            <column name="DisplayName" value="Hotel or motel paid for without emergency shelter voucher"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="15"/>
+            <column name="DisplayName" value="Foster care home or foster care group home"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="16"/>
+            <column name="DisplayName" value="Place not meant for habitation (e.g., a vehicle, an abandoned building, bus/train/subway station/airport or anywhere outside)"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="17"/>
+            <column name="DisplayName" value="Other"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="18"/>
+            <column name="DisplayName" value="Safe Haven"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="19"/>
+            <column name="DisplayName" value="Rental by client, with VASH subsidy"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="20"/>
+            <column name="DisplayName" value="Rental by client, with other ongoing housing subsidy"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="21"/>
+            <column name="DisplayName" value="Owned by client, with ongoing housing subsidy"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="22"/>
+            <column name="DisplayName" value="Rental by client, no ongoing housing subsidy"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="23"/>
+            <column name="DisplayName" value="Owned by client, no ongoing housing subsidy"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="24"/>
+            <column name="DisplayName" value="Long-term care facility or nursing home"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="25"/>
+            <column name="DisplayName" value="Rental by client, with GPD TIP subsidy"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="26"/>
+            <column name="DisplayName" value="Residential project or halfway house with no homeless criteria"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="24"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="25"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="More than one week, but less than one month"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="25"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="One to three months"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="25"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="More than three months, but less than one year"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="25"/>
+            <column name="ValueString" value="5"/>
+            <column name="DisplayName" value="One year or longer"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="25"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="25"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="25"/>
+            <column name="ValueString" value="10"/>
+            <column name="DisplayName" value="One day or less"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="25"/>
+            <column name="ValueString" value="11"/>
+            <column name="DisplayName" value="Two days to one week"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="25"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="26"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="Full SSN reported"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="26"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="Approximate or partial SSN reported"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="26"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="26"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="26"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="AK"/>
+            <column name="DisplayName" value="AK"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="AL"/>
+            <column name="DisplayName" value="AL"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="AR"/>
+            <column name="DisplayName" value="AR"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="AZ"/>
+            <column name="DisplayName" value="AZ"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="CA"/>
+            <column name="DisplayName" value="CA"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="CO"/>
+            <column name="DisplayName" value="CO"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="CT"/>
+            <column name="DisplayName" value="CT"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="DE"/>
+            <column name="DisplayName" value="DE"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="FL"/>
+            <column name="DisplayName" value="FL"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="GA"/>
+            <column name="DisplayName" value="GA"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="HI"/>
+            <column name="DisplayName" value="HI"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="IA"/>
+            <column name="DisplayName" value="IA"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="ID"/>
+            <column name="DisplayName" value="ID"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="IL"/>
+            <column name="DisplayName" value="IL"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="IN"/>
+            <column name="DisplayName" value="IN"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="KS"/>
+            <column name="DisplayName" value="KS"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="KY"/>
+            <column name="DisplayName" value="KY"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="LA"/>
+            <column name="DisplayName" value="LA"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="MA"/>
+            <column name="DisplayName" value="MA"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="MD"/>
+            <column name="DisplayName" value="MD"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="ME"/>
+            <column name="DisplayName" value="ME"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="MI"/>
+            <column name="DisplayName" value="MI"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="MN"/>
+            <column name="DisplayName" value="MN"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="MO"/>
+            <column name="DisplayName" value="MO"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="MS"/>
+            <column name="DisplayName" value="MS"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="MT"/>
+            <column name="DisplayName" value="MT"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="NC"/>
+            <column name="DisplayName" value="NC"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="ND"/>
+            <column name="DisplayName" value="ND"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="NE"/>
+            <column name="DisplayName" value="NE"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="NH"/>
+            <column name="DisplayName" value="NH"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="NJ"/>
+            <column name="DisplayName" value="NJ"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="NM"/>
+            <column name="DisplayName" value="NM"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="NV"/>
+            <column name="DisplayName" value="NV"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="NY"/>
+            <column name="DisplayName" value="NY"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="OH"/>
+            <column name="DisplayName" value="OH"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="OK"/>
+            <column name="DisplayName" value="OK"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="OR"/>
+            <column name="DisplayName" value="OR"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="PA"/>
+            <column name="DisplayName" value="PA"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="RI"/>
+            <column name="DisplayName" value="RI"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="SC"/>
+            <column name="DisplayName" value="SC"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="SD"/>
+            <column name="DisplayName" value="SD"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="TN"/>
+            <column name="DisplayName" value="TN"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="TX"/>
+            <column name="DisplayName" value="TX"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="UT"/>
+            <column name="DisplayName" value="UT"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="VA"/>
+            <column name="DisplayName" value="VA"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="VT"/>
+            <column name="DisplayName" value="VT"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="WA"/>
+            <column name="DisplayName" value="WA"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="WI"/>
+            <column name="DisplayName" value="WI"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="WV"/>
+            <column name="DisplayName" value="WV"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="WY"/>
+            <column name="DisplayName" value="WY"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="DC"/>
+            <column name="DisplayName" value="DC"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="AS"/>
+            <column name="DisplayName" value="AS"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="FM"/>
+            <column name="DisplayName" value="FM"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="GU"/>
+            <column name="DisplayName" value="GU"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="MH"/>
+            <column name="DisplayName" value="MH"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="MP"/>
+            <column name="DisplayName" value="MP"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="PR"/>
+            <column name="DisplayName" value="PR"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="PW"/>
+            <column name="DisplayName" value="PW"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="VI"/>
+            <column name="DisplayName" value="VI"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="AA"/>
+            <column name="DisplayName" value="AA"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="AE"/>
+            <column name="DisplayName" value="AE"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="27"/>
+            <column name="ValueString" value="AP"/>
+            <column name="DisplayName" value="AP"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="28"/>
+            <column name="ValueString" value="0"/>
+            <column name="DisplayName" value="0"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="28"/>
+            <column name="ValueString" value="1"/>
+            <column name="DisplayName" value="1"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="28"/>
+            <column name="ValueString" value="2"/>
+            <column name="DisplayName" value="2"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="28"/>
+            <column name="ValueString" value="3"/>
+            <column name="DisplayName" value="3"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="28"/>
+            <column name="ValueString" value="4"/>
+            <column name="DisplayName" value="4 or more"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="28"/>
+            <column name="ValueString" value="8"/>
+            <column name="DisplayName" value="Client doesn't know"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="28"/>
+            <column name="ValueString" value="9"/>
+            <column name="DisplayName" value="Client refused"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="28"/>
+            <column name="ValueString" value="99"/>
+            <column name="DisplayName" value="Data not collected"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

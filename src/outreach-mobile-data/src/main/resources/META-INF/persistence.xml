@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="outreach-pu-01" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <properties>
+      <property name="hibernate.connection.CharSet">utf8</property>
+      <property name="hibernate.connection.useUnicode" value="true"/>
+      <property name="hibernate.connection.characterEncoding" value="UTF-8"/>
+      <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+      <property name="hibernate.cache.use_second_level_cache" value="true"/>
+      <property name="hibernate.cache.use_query_cache" value="true"/>
+      <property name="hibernate.generate_statistics" value="false"/>
+      <property name="hibernate.cache.use_structured_entries" value="false"/>
+    </properties>
+    <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+  </persistence-unit>
+</persistence>

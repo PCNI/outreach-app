@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.innoppl.outreach</groupId>
+        <artifactId>outreach-mobile-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <groupId>com.innoppl.outreach</groupId>
+    <artifactId>outreach-mobile-data</artifactId>
+    <version>1.0.0</version>
+    <name>outreach-mobile-data</name>
+    <url>http://maven.apache.org</url>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <repositories>
+        <repository>
+            <id>terracotta-releases</id>
+            <url>http://www.terracotta.org/download/reflector/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>codelds</id>
+            <url>https://code.lds.org/nexus/content/groups/main-repo</url>
+        </repository>        
+        <repository>
+            <id>unknown-jars-temp-repo</id>
+            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        
+        <!-- Bean Validation Dependencies -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+        
+        <!-- JPA Persistence Dependencies -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.1.1.Final</version>
+            <scope>compile</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.5.Final</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>4.3.5.Final</version>
+        </dependency>
+        
+        <!--        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+            <scope>compile</scope>
+        </dependency>-->
+
+
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.2.1</version>
+        </dependency>
+
+        <!-- Spring Dependencies -->
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.33</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.3.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+            <type>jar</type>
+        </dependency>        
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.182</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.innoppl.outreach</groupId>
+            <artifactId>outreach-mobile-commons</artifactId>
+            <version>1.0.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>                                                                         
+                <groupId>org.apache.maven.plugins</groupId>                                  
+                <artifactId>maven-javadoc-plugin</artifactId>                                
+                <version>2.9.1</version>                                                       
+                <configuration>                                                              
+                    <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>                         
+                    <docletArtifact>                                                         
+                        <groupId>org.umlgraph</groupId>                                      
+                        <artifactId>umlgraph</artifactId>                                    
+                        <version>5.6.6</version>                                               
+                    </docletArtifact>                                                        
+                    <additionalparam>-views -attributes -visibility -types</additionalparam>                           
+                    <useStandardDocletOptions>true</useStandardDocletOptions>                
+                </configuration>                                                             
+            </plugin>                                                                        
+        </plugins>
+    </build>
+</project>

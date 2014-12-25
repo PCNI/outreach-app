@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- Appenders -->
+    <appender name="app" class="org.apache.log4j.RollingFileAppender"> 
+        <param name="file" value="target/logs/outreach-app.log"/>
+        <param name="MaxFileSize" value="20MB"/>
+        <layout class="org.apache.log4j.PatternLayout"> 
+            <param name="ConversionPattern" value="%d [%t] %-5p %c - %m%n"/> 
+        </layout> 
+    </appender>
+    <appender name="spring" class="org.apache.log4j.RollingFileAppender"> 
+        <param name="file" value="target/logs/spring.log"/>
+        <param name="MaxFileSize" value="20MB"/>
+        <layout class="org.apache.log4j.PatternLayout"> 
+            <param name="ConversionPattern" value="%d [%t] %-5p %c - %m%n"/> 
+        </layout> 
+    </appender>
+    
+    <logger name="com.innoppl.outreach">
+        <level value="TRACE" />
+        <appender-ref ref="app" />
+    </logger>
+
+    <!-- 3rdparty Loggers -->
+    <logger name="org.springframework">
+        <level value="DEBUG" />
+        <appender-ref ref="spring" />
+    </logger>
+	
+    <logger name="org.hibernate">
+        <level value="DEBUG" />
+        <appender-ref ref="spring" />
+    </logger>
+</log4j:configuration>
