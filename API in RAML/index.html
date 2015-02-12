@@ -1,0 +1,722 @@
+<!DOCTYPE HTML><html><head><title>APIDocumentation API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/kevinrenskers/raml2html 1.4.0"><link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css"><script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {
+            $('.page-header pre code, .top-resource-description pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+
+            $('[data-toggle]').click(function() {
+                var selector = $(this).data('target') + ' pre code';
+                $(selector).each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+            });
+        });
+    </script><style>
+        .hljs {
+            background: transparent;
+        }
+        .parent {
+            color: #999;
+        }
+        .list-group-item > .badge {
+            float: none;
+            margin-right: 6px;
+        }
+        .panel-title > .methods {
+            float: right;
+        }
+        .badge {
+            border-radius: 0;
+            text-transform: uppercase;
+            width: 70px;
+            font-weight: normal;
+            color: #f3f3f6;
+            line-height: normal;
+        }
+        .badge_get {
+            background-color: #63a8e2;
+        }
+        .badge_post {
+            background-color: #6cbd7d;
+        }
+        .badge_put {
+            background-color: #22bac4;
+        }
+        .badge_delete {
+            background-color: #d26460;
+        }
+        .list-group, .panel-group {
+            margin-bottom: 0;
+        }
+        .panel-group .panel+.panel-white {
+            margin-top: 0;
+        }
+        .panel-group .panel-white {
+            border-bottom: 1px solid #F5F5F5;
+            border-radius: 0;
+        }
+        .panel-white:last-child {
+            border-bottom-color: white;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        .panel-white .panel-heading {
+            background: white;
+        }
+        .tab-pane ul {
+            padding-left: 2em;
+        }
+        .tab-pane h2 {
+            font-size: 1.2em;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab-pane h3 {
+            font-size: 1.1em;
+        }
+        .tab-content {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        #sidebar {
+            margin-top: 30px;
+        }
+        .top-resource-description {
+            border-bottom: 1px solid #ddd;
+            background: #fcfcfc;
+            padding: 15px 15px 0 15px;
+            margin: -15px -15px 10px -15px;
+        }
+        .resource-description {
+            border-bottom: 1px solid #fcfcfc;
+            background: #fcfcfc;
+            padding: 15px 15px 0 15px;
+            margin: -15px -15px 10px -15px;
+        }
+        .resource-description p:last-child {
+            margin: 0;
+        }
+        .list-group .badge {
+            float: left;
+        }
+        .method_description {
+            margin-left: 85px;
+        }
+        .method_description p:last-child {
+            margin: 0;
+        }
+        .list-group-item {
+            cursor: pointer;
+        }
+        .list-group-item:hover {
+            background-color: #f5f5f5;
+        }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>APIDocumentation API documentation <small>version v1</small></h1><p>https://localhost:8081/outreach_api/</p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_service_user_auth" class="panel-title">Authentication and Authorization Service</h3></div><div class="panel-body"><div class="top-resource-description"><p>This service is responsible for providing Authentication and Authorization .</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__service_user_auth"><span class="parent"></span>/service/user/auth</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_service_user_auth_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel__service_user_auth" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_service_user_auth_post" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Use the following web service to get an access token.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_service_user_auth_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/service/user/auth</h4></div><div class="modal-body"><div class="alert alert-info"><p>Use the following web service to get an access token.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_service_user_auth_post_request" data-toggle="tab">Request</a></li><li><a href="#_service_user_auth_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_service_user_auth_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ 
+        "email":"a@b.com",
+        "password":"pa55w0rd"
+}
+</code></pre></div><div class="tab-pane" id="_service_user_auth_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>access token.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[  "access_token":  "94134def-1775-4d85-9b5d-a856e51",
+
+   "expires_in":    1419939427717,
+
+   "token_type":    "Bearer"
+
+
+ ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to get Access Token.</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_service_client" class="panel-title">Client Service</h3></div><div class="panel-body"><div class="top-resource-description"><p>This service is responsible for adding a client,update a client,search client by ID. Use /service/user/auth service to get access token.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__service_client"><span class="parent"></span>/service/client</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_service_client_post"><span class="badge badge_post">post</span></a> <a href="#" data-toggle="modal" data-target="#_service_client_put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel__service_client" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_service_client_post" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Add new client in this service. The following fields must NOT be specified ID of Client ,ID of VeteranInfo if applicable</p></div><div class="clearfix"></div></div><div data-toggle="modal" data-target="#_service_client_put" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update a client in this service.The following fields must be specified PersonalID,ProjectEntryID,VeteranInfoID if applicable</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_service_client_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/service/client</h4></div><div class="modal-body"><div class="alert alert-info"><p>Add new client in this service. The following fields must NOT be specified ID of Client ,ID of VeteranInfo if applicable</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_service_client_post_request" data-toggle="tab">Request</a></li><li><a href="#_service_client_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_service_client_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ 
+ "ID": 101,
+"FirstName": "Edward",
+"MiddleName": "Barnaby",
+"LastName": "Jones",
+"NameSuffix": "Sr.",
+"NameDataQuality": 9,
+"SSN": "7xxx9xx8x",
+"SSNDataQuality": 2,
+"DOB": "2014-11-18",
+"DOBDataQuality": 1,
+"Gender": 3,
+"OtherGender": "intersex",
+"Ethnicity": 0,
+"Race": 8,
+"VeteranStatus": 9,
+"VeteranInfo": {
+  "ID": 787,
+  "YearEnteredService": "2002",
+  "YearSeparated": "2004",
+  "WorldWarII": "0",
+  "KoreanWar": "99",
+  "VietnamWar": "1",
+  "DesertStorm": "0",
+  "AfghanistanOEF": "8",
+  "IraqOIF": "9",
+  "IraqOND": "99",
+  "OtherTheater": "8",
+  "MilitaryBranch": "8",
+  "DischargeStatus": "6"
+        }
+  }
+    
+</code></pre></div><div class="tab-pane" id="_service_client_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Client added successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>["ID": 101,
+  "FirstName": "Edward",
+  "MiddleName": "Barnaby",
+  "LastName": "Jones",
+  "NameSuffix": "Sr.",
+  "NameDataQuality": 9,
+  "SSN": "7xxx9xx8x",
+  "SSNDataQuality": 2,
+  "DOB": "2014-11-18",
+  "DOBDataQuality": 1,  
+  "Gender": 3,
+  "OtherGender": "intersex",
+  "Ethnicity": 0,
+  "Race": 8,
+  "VeteranStatus": 9,
+  "VeteranInfo": {
+  "ID": 787,
+  "YearEnteredService": "2002",
+  "YearSeparated": "2004",
+  "WorldWarII": "0",
+  "KoreanWar": "99",
+  "VietnamWar": "1",
+  "DesertStorm": "0",
+  "AfghanistanOEF": "8",
+  "IraqOIF": "9",
+  "IraqOND": "99",
+  "OtherTheater": "8",
+  "MilitaryBranch": "8",
+  "DischargeStatus": "6"
+      }
+    
+    ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Add.</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="_service_client_put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent"></span>/service/client</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update a client in this service.The following fields must be specified PersonalID,ProjectEntryID,VeteranInfoID if applicable</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_service_client_put_request" data-toggle="tab">Request</a></li><li><a href="#_service_client_put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_service_client_put_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ "ID": 101,
+"FirstName": "Edward",
+"MiddleName": "Barnaby",
+"LastName": "Jones",
+"NameSuffix": "Sr.",
+"NameDataQuality": 9,
+"SSN": "7xxx9xx8x",
+"SSNDataQuality": 2,
+"DOB": "2014-11-18",
+"DOBDataQuality": 1,
+"Gender": 3,
+"OtherGender": "intersex",
+"Ethnicity": 0,
+"Race": 8,
+"VeteranStatus": 9,
+"VeteranInfo": {
+  "ID": 787,
+  "YearEnteredService": "2002",
+  "YearSeparated": "2004",
+  "WorldWarII": "0",
+  "KoreanWar": "99",
+  "VietnamWar": "1",
+  "DesertStorm": "0",
+  "AfghanistanOEF": "8",
+  "IraqOIF": "9",
+  "IraqOND": "99",
+  "OtherTheater": "8",
+  "MilitaryBranch": "8",
+  "DischargeStatus": "6"
+        }
+        
+     }
+    
+</code></pre></div><div class="tab-pane" id="_service_client_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Client Updated successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+  "ID": 101,
+  "FirstName": "Edward",
+  "MiddleName": "Barnaby",
+  "LastName": "Jones",
+  "NameSuffix": "Sr.",
+  "NameDataQuality": 9,
+  "SSN": "7xxx9xx8x",
+  "SSNDataQuality": 2,
+  "DOB": "2014-11-18",
+  "DOBDataQuality": 1,  
+  "Gender": 3,
+  "OtherGender": "intersex",
+  "Ethnicity": 0,
+  "Race": 8,
+  "VeteranStatus": 9,
+  "VeteranInfo": {
+  "ID": 787,
+  "YearEnteredService": "2002",
+  "YearSeparated": "2004",
+  "WorldWarII": "0",
+  "KoreanWar": "99",
+  "VietnamWar": "1",
+  "DesertStorm": "0",
+  "AfghanistanOEF": "8",
+  "IraqOIF": "9",
+  "IraqOND": "99",
+  "OtherTheater": "8",
+  "MilitaryBranch": "8",
+  "DischargeStatus": "6"
+      }
+    
+  ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Update.</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__service_client__PersonalID_"><span class="parent">/service/client</span>/{PersonalID}</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_service_client__PersonalID__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__service_client__PersonalID_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_service_client__PersonalID__get" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_service_client__PersonalID__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/service/client</span>/{PersonalID}</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#_service_client__PersonalID__get_request" data-toggle="tab">Request</a></li><li><a href="#_service_client__PersonalID__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_service_client__PersonalID__get_request"><h3>URI Parameters</h3><ul><li><strong>PersonalID</strong>: <em>required (string)</em></li></ul></div><div class="tab-pane" id="_service_client__PersonalID__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Client Details.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+   "ID": 101,
+    "FirstName": "Edward",
+    "MiddleName": "Barnaby",
+    "LastName": "Jones",
+    "NameSuffix": "Sr.",
+    "NameDataQuality": 9,
+    "SSN": "7xxx9xx8x",      
+    "SSNDataQuality": 2,
+    "DOB": "2014-11-18",
+    "DOBDataQuality": 1,  
+    "Gender": 3,
+    "OtherGender": "intersex",
+    "Ethnicity": 0,
+    "Race": 8,
+    "VeteranStatus": 9,
+    "VeteranInfo": {
+    "ID": 787,
+    "YearEnteredService": "2002",
+    "YearSeparated": "2004",
+    "WorldWarII": "0",
+    "KoreanWar": "99",
+    "VietnamWar": "1",
+    "DesertStorm": "0",
+    "AfghanistanOEF": "8",
+    "IraqOIF": "9",
+    "IraqOND": "99",
+    "OtherTheater": "8",
+    "MilitaryBranch": "8",
+  "DischargeStatus": "6"
+  }
+
+  ]
+  
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Update.</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__service_client_search"><span class="parent">/service/client</span>/search</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_service_client_search_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__service_client_search" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_service_client_search_get" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Search clients</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_service_client_search_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/service/client</span>/search</h4></div><div class="modal-body"><div class="alert alert-info"><p>Search clients</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_service_client_search_get_request" data-toggle="tab">Request</a></li><li><a href="#_service_client_search_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_service_client_search_get_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{      "firstName": "john",
+       "lastName": "smith",
+       "ssn": "123",  
+       "sAge": 30,
+       "eAge": 50,  
+       "start": 1,
+       "rows": 10
+       
+    }
+   
+</code></pre></div><div class="tab-pane" id="_service_client_search_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Client Details.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+    
+         "ID": 101,
+          "FirstName": "Edward",
+          "MiddleName": "Barnaby",
+          "LastName": "Jones",
+          "NameSuffix": "Sr.",
+          "NameDataQuality": 9,
+          "SSN": "7xxx9xx8x",      
+          "SSNDataQuality": 2,
+          "DOB": "2014-11-18",
+          "DOBDataQuality": 1,  
+          "Gender": 3,
+          "OtherGender": "intersex",
+          "Ethnicity": 0,
+          "Race": 8,
+          "VeteranStatus": 9,
+          "VeteranInfo": {
+          "ID": 787,
+          "YearEnteredService": "2002",
+          "YearSeparated": "2004",
+          "WorldWarII": "0",
+          "KoreanWar": "99",
+          "VietnamWar": "1",
+          "DesertStorm": "0",
+          "AfghanistanOEF": "8",
+          "IraqOIF": "9",
+          "IraqOND": "99",
+          "OtherTheater": "8",
+          "MilitaryBranch": "8",
+        "DischargeStatus": "6"
+        }
+
+      
+    
+  ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to search</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_service_enrollment" class="panel-title">Enrollment Service</h3></div><div class="panel-body"><div class="top-resource-description"><p>This service is responsible for adding a Enrollment,update a Enrollment,search Enrollment by ID.Use /service/user/auth service to get access token.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__service_enrollment"><span class="parent"></span>/service/enrollment</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_service_enrollment_post"><span class="badge badge_post">post</span></a> <a href="#" data-toggle="modal" data-target="#_service_enrollment_put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel__service_enrollment" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_service_enrollment_post" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Add new Enrollment information in this service. The following fields must NOT be specified ID if exists.</p></div><div class="clearfix"></div></div><div data-toggle="modal" data-target="#_service_enrollment_put" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update Enrollment in this service.The following fields must be specified ID.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_service_enrollment_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/service/enrollment</h4></div><div class="modal-body"><div class="alert alert-info"><p>Add new Enrollment information in this service. The following fields must NOT be specified ID if exists.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_service_enrollment_post_request" data-toggle="tab">Request</a></li><li><a href="#_service_enrollment_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_service_enrollment_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ 
+ "ID": 5642,
+  "PersonalID": {"ID": 563},
+  "EntryDate": "2016-04-12Z",
+  "HouseholdID": "a34563w",
+  "RelationshipToHoH": "1",
+  "ResidencePrior": "12",
+  "OtherResidencePrior": "some other residence text here",
+  "ResidencePriorLengthOfStay": "8",
+  "ContinuouslyHomelessOneYear": "8",
+  "TimesHomelessPastThreeYears": "0",
+  "MonthsHomelessPastThreeYears": "103",
+  "MonthsHomelessThisTime": "101",
+  "YearsHomeless": "3",
+  "StatusDocumented": "1",
+  "DisablingCondition": "9",
+  "HousingStatus": "6"
+
+  }
+    
+</code></pre></div><div class="tab-pane" id="_service_enrollment_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Client added successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>["ID": 5642,
+  "PersonalID": {"ID": 563},
+  "EntryDate": "2016-04-12Z",
+  "HouseholdID": "a34563w",
+  "RelationshipToHoH": "1",
+  "ResidencePrior": "12",
+   "OtherResidencePrior": "some other residence text here",
+  "ResidencePriorLengthOfStay": "8",
+   "ContinuouslyHomelessOneYear": "8",
+  "TimesHomelessPastThreeYears": "0",
+  "MonthsHomelessPastThreeYears": "103",
+  "MonthsHomelessThisTime": "101",
+  "YearsHomeless": "3",
+  "StatusDocumented": "1",
+  "DisablingCondition": "9",
+  "HousingStatus": "6"
+
+    ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Add.</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="_service_enrollment_put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent"></span>/service/enrollment</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update Enrollment in this service.The following fields must be specified ID.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_service_enrollment_put_request" data-toggle="tab">Request</a></li><li><a href="#_service_enrollment_put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_service_enrollment_put_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ "ID": 5642,
+      "PersonalID": {"ID": 563},
+      "EntryDate": "2016-04-12Z",
+      "HouseholdID": "a34563w",
+      "RelationshipToHoH": "1",
+      "ResidencePrior": "12",
+       "OtherResidencePrior": "some other residence text here",
+      "ResidencePriorLengthOfStay": "8",
+       "ContinuouslyHomelessOneYear": "8",
+      "TimesHomelessPastThreeYears": "0",
+      "MonthsHomelessPastThreeYears": "103",
+      "MonthsHomelessThisTime": "101",
+      "YearsHomeless": "3",
+      "StatusDocumented": "1",
+      "DisablingCondition": "9",
+      "HousingStatus": "6"
+        }
+        
+     }
+    
+</code></pre></div><div class="tab-pane" id="_service_enrollment_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Enrollment Information Updated successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+  "ID": 5642,
+  "PersonalID": {"ID": 563},
+  "EntryDate": "2016-04-12Z",
+  "HouseholdID": "a34563w",
+  "RelationshipToHoH": "1",
+  "ResidencePrior": "12",
+   "OtherResidencePrior": "some other residence text here",
+  "ResidencePriorLengthOfStay": "8",
+   "ContinuouslyHomelessOneYear": "8",
+  "TimesHomelessPastThreeYears": "0",
+  "MonthsHomelessPastThreeYears": "103",
+  "MonthsHomelessThisTime": "101",
+  "YearsHomeless": "3",
+  "StatusDocumented": "1",
+  "DisablingCondition": "9",
+  "HousingStatus": "6"
+    
+  ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Update.</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__service_enrollment__PersonalID_"><span class="parent">/service/enrollment</span>/{PersonalID}</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_service_enrollment__PersonalID__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__service_enrollment__PersonalID_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_service_enrollment__PersonalID__get" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_service_enrollment__PersonalID__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/service/enrollment</span>/{PersonalID}</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#_service_enrollment__PersonalID__get_request" data-toggle="tab">Request</a></li><li><a href="#_service_enrollment__PersonalID__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_service_enrollment__PersonalID__get_request"><h3>URI Parameters</h3><ul><li><strong>PersonalID</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ "ID": 5642,
+"PersonalID": {"ID": 563},
+"EntryDate": "2016-04-12Z",
+"HouseholdID": "a34563w",
+"RelationshipToHoH": "1",
+"ResidencePrior": "12",
+ "OtherResidencePrior": "some other residence text here",
+"ResidencePriorLengthOfStay": "8",
+ "ContinuouslyHomelessOneYear": "8",
+"TimesHomelessPastThreeYears": "0",
+"MonthsHomelessPastThreeYears": "103",
+"MonthsHomelessThisTime": "101",
+"YearsHomeless": "3",
+"StatusDocumented": "1",
+"DisablingCondition": "9",
+"HousingStatus": "6"
+  }
+  
+ }
+</code></pre></div><div class="tab-pane" id="_service_enrollment__PersonalID__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Client Details.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+   "ID": 101,
+    "FirstName": "Edward",
+    "MiddleName": "Barnaby",
+    "LastName": "Jones",
+    "NameSuffix": "Sr.",
+    "NameDataQuality": 9,
+    "SSN": "7xxx9xx8x",      
+    "SSNDataQuality": 2,
+    "DOB": "2014-11-18",
+    "DOBDataQuality": 1,  
+    "Gender": 3,
+    "OtherGender": "intersex",
+    "Ethnicity": 0,
+    "Race": 8,
+    "VeteranStatus": 9,
+    "VeteranInfo": {
+    "ID": 787,
+    "YearEnteredService": "2002",
+    "YearSeparated": "2004",
+    "WorldWarII": "0",
+    "KoreanWar": "99",
+    "VietnamWar": "1",
+    "DesertStorm": "0",
+    "AfghanistanOEF": "8",
+    "IraqOIF": "9",
+    "IraqOND": "99",
+    "OtherTheater": "8",
+    "MilitaryBranch": "8",
+  "DischargeStatus": "6"
+  }
+
+  ]
+  
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Search.</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_disability" class="panel-title">Disability Service</h3></div><div class="panel-body"><div class="top-resource-description"><p>This service is responsible for adding a disability,updating,search disability by ID. Use /service/user/auth service to get access token.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__disability"><span class="parent"></span>/disability</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_disability_post"><span class="badge badge_post">post</span></a> <a href="#" data-toggle="modal" data-target="#_disability_put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel__disability" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_disability_post" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Add new disability information. The following fields must NOT be specified ID if exists.</p></div><div class="clearfix"></div></div><div data-toggle="modal" data-target="#_disability_put" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update disability in this service.The following fields must be specified ID.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_disability_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/disability</h4></div><div class="modal-body"><div class="alert alert-info"><p>Add new disability information. The following fields must NOT be specified ID if exists.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_disability_post_request" data-toggle="tab">Request</a></li><li><a href="#_disability_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_disability_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+"ID": 674,
+ "ProjectEntryID": {"ID": 343},
+  "DisabilityType": "10",
+  "DisabilityResponse": "2",
+  "IndefiniteAndImpairs": "9",
+  "DocumentationOnFile": "1",
+  "ReceivingServices": "99",
+  "PATHHowConfirmed": "1",
+  "PATHSMIInformation": "3"
+    
+}              
+</code></pre></div><div class="tab-pane" id="_disability_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>disability added successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[ "ID": 674,
+  "ProjectEntryID": {"ID": 343},
+   "DisabilityType": "10",
+    "DisabilityResponse": "2",
+    "IndefiniteAndImpairs": "9",
+    "DocumentationOnFile": "1",
+     "ReceivingServices": "99",
+    "PATHHowConfirmed": "1",
+     "PATHSMIInformation": "3"
+
+ ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Add.</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="_disability_put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent"></span>/disability</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update disability in this service.The following fields must be specified ID.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_disability_put_request" data-toggle="tab">Request</a></li><li><a href="#_disability_put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_disability_put_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ "ID": 674,
+    "ProjectEntryID": {"ID": 343},
+    "DisabilityType": "10",
+    "DisabilityResponse": "2",
+    "IndefiniteAndImpairs": "9",
+    "DocumentationOnFile": "1",
+    "ReceivingServices": "99",
+    "PATHHowConfirmed": "1",
+    "PATHSMIInformation": "3"
+
+ }
+    
+</code></pre></div><div class="tab-pane" id="_disability_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>disability Information Updated successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+  "ID": 674,
+  "ProjectEntryID": {"ID": 343},
+  "DisabilityType": "10",
+  "DisabilityResponse": "2",
+  "IndefiniteAndImpairs": "9",
+  "DocumentationOnFile": "1",
+  "ReceivingServices": "99",
+  "PATHHowConfirmed": "1",
+  "PATHSMIInformation": "3"
+
+  ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Update.</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__disability__DisabilitiesID_"><span class="parent">/disability</span>/{DisabilitiesID}</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_disability__DisabilitiesID__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__disability__DisabilitiesID_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_disability__DisabilitiesID__get" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_disability__DisabilitiesID__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/disability</span>/{DisabilitiesID}</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#_disability__DisabilitiesID__get_request" data-toggle="tab">Request</a></li><li><a href="#_disability__DisabilitiesID__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_disability__DisabilitiesID__get_request"><h3>URI Parameters</h3><ul><li><strong>DisabilitiesID</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ 
+ }
+</code></pre></div><div class="tab-pane" id="_disability__DisabilitiesID__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>disability Details.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>["ID": 674,
+    "ProjectEntryID": {"ID": 343},
+    "DisabilityType": "10",
+    "DisabilityResponse": "2",
+    "IndefiniteAndImpairs": "9",
+    "DocumentationOnFile": "1",
+    "ReceivingServices": "99",
+    "PATHHowConfirmed": "1",
+    "PATHSMIInformation": "3
+
+  ]
+  
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Search.</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_doe" class="panel-title">DateofEngagement Service</h3></div><div class="panel-body"><div class="top-resource-description"><p>This service is responsible for adding a DateofEngagement,updating,search DateofEngagement by ID.Use /service/user/auth service to get access token.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__doe"><span class="parent"></span>/doe</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_doe_post"><span class="badge badge_post">post</span></a> <a href="#" data-toggle="modal" data-target="#_doe_put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel__doe" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_doe_post" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Add new DateofEngagement information. The following fields must NOT be specified ID.</p></div><div class="clearfix"></div></div><div data-toggle="modal" data-target="#_doe_put" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update DateofEngagement in this service.The following fields must be specified ID.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_doe_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/doe</h4></div><div class="modal-body"><div class="alert alert-info"><p>Add new DateofEngagement information. The following fields must NOT be specified ID.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_doe_post_request" data-toggle="tab">Request</a></li><li><a href="#_doe_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_doe_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+"ID": 4321,
+"ProjectEntryID": {"ID": 343},
+"DateOfEngagement": "2016-04-17"
+
+}
+    
+</code></pre></div><div class="tab-pane" id="_doe_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>DateofEngagement added successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[  "ID": 4321,
+   "ProjectEntryID": {"ID": 343},
+   "DateOfEngagement": "2016-04-17"
+
+ ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Add.</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="_doe_put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent"></span>/doe</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update DateofEngagement in this service.The following fields must be specified ID.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_doe_put_request" data-toggle="tab">Request</a></li><li><a href="#_doe_put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_doe_put_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{  "ID": 4321,
+  "ProjectEntryID": {"ID": 343},
+   "DateOfEngagement": "2016-04-17"
+
+ }
+    
+</code></pre></div><div class="tab-pane" id="_doe_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>DateofEngagement Information Updated successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+   "ID": 4321,
+  "ProjectEntryID": {"ID": 343},
+ "DateOfEngagement": "2016-04-17"
+
+  ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Update.</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__doe__DateOfEngagementID_"><span class="parent">/doe</span>/{DateOfEngagementID}</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_doe__DateOfEngagementID__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__doe__DateOfEngagementID_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_doe__DateOfEngagementID__get" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_doe__DateOfEngagementID__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/doe</span>/{DateOfEngagementID}</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#_doe__DateOfEngagementID__get_request" data-toggle="tab">Request</a></li><li><a href="#_doe__DateOfEngagementID__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_doe__DateOfEngagementID__get_request"><h3>URI Parameters</h3><ul><li><strong>DateOfEngagementID</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ 
+ }
+</code></pre></div><div class="tab-pane" id="_doe__DateOfEngagementID__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>DateofEngagement Details.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>["ID": 4321,
+  "ProjectEntryID": {"ID": 343},
+   "DateOfEngagement": "2016-04-17"
+  ]
+  
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Search.</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_pathstatus" class="panel-title">Pathstatus Service</h3></div><div class="panel-body"><div class="top-resource-description"><p>This service is responsible for adding a Pathstatus,updating,search Pathstatus Information by ID.Use /service/user/auth service to get access token.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__pathstatus"><span class="parent"></span>/pathstatus</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_pathstatus_post"><span class="badge badge_post">post</span></a> <a href="#" data-toggle="modal" data-target="#_pathstatus_put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel__pathstatus" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_pathstatus_post" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Add new Pathstatus information. The following fields must NOT be specified ID if exists.</p></div><div class="clearfix"></div></div><div data-toggle="modal" data-target="#_pathstatus_put" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update Pathstatus in this service.The following fields must be specified ID.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_pathstatus_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/pathstatus</h4></div><div class="modal-body"><div class="alert alert-info"><p>Add new Pathstatus information. The following fields must NOT be specified ID if exists.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_pathstatus_post_request" data-toggle="tab">Request</a></li><li><a href="#_pathstatus_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_pathstatus_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+"ID": 453332,
+"ProjectEntryID": {"ID": 343},
+"DateOfStatus": "2016-04-23",  
+"ClientEnrolledInPATH": "0",
+"ReasonNotEnrolled": "2"
+}
+    
+</code></pre></div><div class="tab-pane" id="_pathstatus_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Pathstatus Information added successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[  "ID": 453332,
+   "ProjectEntryID": {"ID": 343},
+   "DateOfStatus": "2016-04-23",
+   "ClientEnrolledInPATH": "0",
+   "ReasonNotEnrolled": "2"
+
+ ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Add.</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="_pathstatus_put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent"></span>/pathstatus</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update Pathstatus in this service.The following fields must be specified ID.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_pathstatus_put_request" data-toggle="tab">Request</a></li><li><a href="#_pathstatus_put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_pathstatus_put_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{  "ID": 453332,
+  "ProjectEntryID": {"ID": 343},  
+  "DateOfStatus": "2016-04-23",
+  "ClientEnrolledInPATH": "0",
+  "ReasonNotEnrolled": "2"
+}
+    
+</code></pre></div><div class="tab-pane" id="_pathstatus_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Pathstatus Information Updated successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>["ID": 453332,
+  "ProjectEntryID": {"ID": 343},
+  "DateOfStatus": "2016-04-23",
+  "ClientEnrolledInPATH": "0",
+  "ReasonNotEnrolled": "2"
+]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Update.</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__pathstatus__PathStatusID_"><span class="parent">/pathstatus</span>/{PathStatusID}</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_pathstatus__PathStatusID__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__pathstatus__PathStatusID_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_pathstatus__PathStatusID__get" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_pathstatus__PathStatusID__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/pathstatus</span>/{PathStatusID}</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#_pathstatus__PathStatusID__get_request" data-toggle="tab">Request</a></li><li><a href="#_pathstatus__PathStatusID__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_pathstatus__PathStatusID__get_request"><h3>URI Parameters</h3><ul><li><strong>PathStatusID</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ 
+ }
+</code></pre></div><div class="tab-pane" id="_pathstatus__PathStatusID__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Pathstatus Details.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>["ID": 453332,
+"ProjectEntryID": {"ID": 343},
+"DateOfStatus": "2016-04-23",
+"ClientEnrolledInPATH": "0",
+"ReasonNotEnrolled": "2"
+
+  ]
+  
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Search.</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_referralsrc" class="panel-title">ReferralSource Service</h3></div><div class="panel-body"><div class="top-resource-description"><p>This service is responsible for adding a ReferralSource,updating,search ReferralSource Information by ID.Use /service/user/auth service to get access token.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__referralsrc"><span class="parent"></span>/referralsrc</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_referralsrc_post"><span class="badge badge_post">post</span></a> <a href="#" data-toggle="modal" data-target="#_referralsrc_put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel__referralsrc" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_referralsrc_post" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Add new ReferralSource information to existing client,enrollment the following fields must NOT be specified ID.</p></div><div class="clearfix"></div></div><div data-toggle="modal" data-target="#_referralsrc_put" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update ReferralSource in this service.The following fields must be specified ID.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_referralsrc_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/referralsrc</h4></div><div class="modal-body"><div class="alert alert-info"><p>Add new ReferralSource information to existing client,enrollment the following fields must NOT be specified ID.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_referralsrc_post_request" data-toggle="tab">Request</a></li><li><a href="#_referralsrc_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_referralsrc_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{
+"ID": 34343,
+"ProjectEntryID": {"ID": 343},
+"ReferralSource": "18",
+"CountOutreachReferralApproaches": "3"
+
+}
+    
+</code></pre></div><div class="tab-pane" id="_referralsrc_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>ReferralSource Information added successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[  "ID": 34343,
+   "ProjectEntryID": {"ID": 343},
+   "ReferralSource": "18",
+   "CountOutreachReferralApproaches": "3"
+
+
+ ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Add.</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="_referralsrc_put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent"></span>/referralsrc</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update ReferralSource in this service.The following fields must be specified ID.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_referralsrc_put_request" data-toggle="tab">Request</a></li><li><a href="#_referralsrc_put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_referralsrc_put_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{  "ID": 34343,
+  "ProjectEntryID": {"ID": 343},    
+  "ReferralSource": "18",
+  "CountOutreachReferralApproaches": "3"
+
+}
+    
+</code></pre></div><div class="tab-pane" id="_referralsrc_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>ReferralSource Information Updated successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>["ID": 34343,
+  "ProjectEntryID": {"ID": 343},
+  "ReferralSource": "18",
+  "CountOutreachReferralApproaches": "3"
+
+]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Update.</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__referralsrc__ReferralSourceID_"><span class="parent">/referralsrc</span>/{ReferralSourceID}</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_referralsrc__ReferralSourceID__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__referralsrc__ReferralSourceID_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_referralsrc__ReferralSourceID__get" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_referralsrc__ReferralSourceID__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/referralsrc</span>/{ReferralSourceID}</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#_referralsrc__ReferralSourceID__get_request" data-toggle="tab">Request</a></li><li><a href="#_referralsrc__ReferralSourceID__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_referralsrc__ReferralSourceID__get_request"><h3>URI Parameters</h3><ul><li><strong>ReferralSourceID</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ 
+ }
+</code></pre></div><div class="tab-pane" id="_referralsrc__ReferralSourceID__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>ReferralSource Details.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>["ID": 34343,
+  "ProjectEntryID": {"ID": 343},
+    "ReferralSource": "18",
+    "CountOutreachReferralApproaches": "3"
+
+  ]
+  
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Search.</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_services" class="panel-title">Services Service</h3></div><div class="panel-body"><div class="top-resource-description"><p>This service is responsible for adding a Services,updating,search Services Information by ID.Use /service/user/auth service to get access token.</p></div><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__services"><span class="parent"></span>/services</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_services_post"><span class="badge badge_post">post</span></a> <a href="#" data-toggle="modal" data-target="#_services_put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel__services" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_services_post" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Add new Services information to existing client,enrollment,the following fields must NOT be specified ID if exists.</p></div><div class="clearfix"></div></div><div data-toggle="modal" data-target="#_services_put" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Update Services in this service.The following fields must be specified ID.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_services_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/services</h4></div><div class="modal-body"><div class="alert alert-info"><p>Add new Services information to existing client,enrollment,the following fields must NOT be specified ID if exists.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_services_post_request" data-toggle="tab">Request</a></li><li><a href="#_services_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_services_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>"ID": "44gg",
+"ProjectEntryID": {"ID": "343"},
+"DateProvided": "2015-09-06",
+"RecordType": "16",
+"TypeProvided": "11",
+"OtherTypeProvided": "some other type here",
+"SubTypeProvided": "12",
+"FAAmount": "1145.59",    
+"ReferralOutcome": "2"
+
+}
+    
+</code></pre></div><div class="tab-pane" id="_services_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Services Information added successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[  "ID": "44gg",
+   "ProjectEntryID": {"ID": "343"},
+   "DateProvided": "2015-09-06",
+   "RecordType": "16",
+   "TypeProvided": "11",    
+   "OtherTypeProvided": "some other type here",
+   "SubTypeProvided": "12",
+   "FAAmount": "1145.59",
+   "ReferralOutcome": "2"
+
+
+ ]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Add.</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="_services_put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent"></span>/services</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update Services in this service.The following fields must be specified ID.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_services_put_request" data-toggle="tab">Request</a></li><li><a href="#_services_put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_services_put_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{  "ID": "44gg",
+    "ProjectEntryID": {"ID": "343"},
+    "DateProvided": "2015-09-06",  
+    "RecordType": "16",
+    "TypeProvided": "11",
+    "OtherTypeProvided": "some other type here",
+    "SubTypeProvided": "12",    
+    "FAAmount": "1145.59",
+    "ReferralOutcome": "2"
+
+
+}
+    
+</code></pre></div><div class="tab-pane" id="_services_put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Services Information Updated successfully.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>["ID": "44gg",
+  "ProjectEntryID": {"ID": "343"},
+  "DateProvided": "2015-09-06",
+  "RecordType": "16",        
+  "TypeProvided": "11",
+  "OtherTypeProvided": "some other type here",
+  "SubTypeProvided": "12",
+  "FAAmount": "1145.59",
+  "ReferralOutcome": "2"
+
+]
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Update.</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__services__ServicesID_"><span class="parent">/services</span>/{ServicesID}</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_services__ServicesID__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__services__ServicesID_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_services__ServicesID__get" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_services__ServicesID__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/services</span>/{ServicesID}</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#_services__ServicesID__get_request" data-toggle="tab">Request</a></li><li><a href="#_services__ServicesID__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_services__ServicesID__get_request"><h3>URI Parameters</h3><ul><li><strong>ServicesID</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ 
+ 
+ }
+</code></pre></div><div class="tab-pane" id="_services__ServicesID__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Services Details.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+    "ID": "44gg",
+    "ProjectEntryID": {"ID": "343"},
+    "DateProvided": "2015-09-06",
+    "RecordType": "16",        
+    "TypeProvided": "11",
+    "OtherTypeProvided": "some other type here",
+    "SubTypeProvided": "12",
+  "FAAmount": "1145.59",
+  "ReferralOutcome": "2"
+
+  ]
+  
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Search.</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_lov__LOVNAME_" class="panel-title">/lov/{LOVNAME}</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__lov__LOVNAME_"><span class="parent"></span>/lov/{LOVNAME}</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_lov__LOVNAME__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__lov__LOVNAME_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_lov__LOVNAME__get" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_lov__LOVNAME__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/lov/{LOVNAME}</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#_lov__LOVNAME__get_request" data-toggle="tab">Request</a></li><li><a href="#_lov__LOVNAME__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_lov__LOVNAME__get_request"><h3>URI Parameters</h3><ul><li><strong>LOVNAME</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ 
+ 
+ }
+</code></pre></div><div class="tab-pane" id="_lov__LOVNAME__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Services Details.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+    "id": 26,
+    "name": "No",
+    "value": "0"
+
+
+  ]
+  
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Search.</p></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__lov__LOVNAME___LOVValue_"><span class="parent">/lov/{LOVNAME}</span>/{LOVValue}</a> <span class="methods"><a href="#" data-toggle="modal" data-target="#_lov__LOVNAME___LOVValue__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__lov__LOVNAME___LOVValue_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div data-toggle="modal" data-target="#_lov__LOVNAME___LOVValue__get" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_lov__LOVNAME___LOVValue__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/lov/{LOVNAME}</span>/{LOVValue}</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#_lov__LOVNAME___LOVValue__get_request" data-toggle="tab">Request</a></li><li><a href="#_lov__LOVNAME___LOVValue__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_lov__LOVNAME___LOVValue__get_request"><h3>URI Parameters</h3><ul><li><strong>LOVNAME</strong>: <em>required (string)</em></li><li><strong>LOVValue</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>{ 
+ 
+ }
+</code></pre></div><div class="tab-pane" id="_lov__LOVNAME___LOVValue__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Services Details.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Example</strong>:</p><pre><code>[
+    "id": 26,
+    "name": "No",
+    "value": "0"
+
+
+  ]
+  
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>Failed to Search.</p></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#_service_user_auth">Authentication and Authorization Service</a></li><li><a href="#_service_client">Client Service</a></li><li><a href="#_service_enrollment">Enrollment Service</a></li><li><a href="#_disability">Disability Service</a></li><li><a href="#_doe">DateofEngagement Service</a></li><li><a href="#_pathstatus">Pathstatus Service</a></li><li><a href="#_referralsrc">ReferralSource Service</a></li><li><a href="#_services">Services Service</a></li><li><a href="#_lov__LOVNAME_">/lov/{LOVNAME}</a></li></ul></div></div></div></div></body></html>
