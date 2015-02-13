@@ -1,0 +1,1094 @@
+#%RAML 0.8
+title: APIDocumentation
+version: v1
+baseUri: https://localhost:8081/outreach_api/
+#HttpHeader:
+ # Content-Type:application/json
+ # Accept:application/json
+mediaType:  application/json
+/service/user/auth:
+  displayName: Authentication and Authorization Service
+  description: This service is responsible for providing      Authentication and Authorization .
+  post:
+    description: Use the following web service to get an access token.          
+    body:
+      application/json:
+        example: |
+          { 
+                  "email":"a@b.com",
+                  "password":"pa55w0rd"
+          }
+  
+    responses:
+      
+      200:
+        description: access token.
+        body:
+          application/json:
+            example: |
+               [  "access_token":  "94134def-1775-4d85-9b5d-a856e51",
+    
+                  "expires_in":    1419939427717,
+    
+                  "token_type":    "Bearer"
+
+
+                ]
+      201:
+        description: Failed to get Access Token.
+        
+        body: null
+
+
+/service/client:
+  displayName: Client Service
+  description: This service is responsible for adding a 
+               client,update a client,search client by ID.
+               Use /service/user/auth service to get access token.
+  post:
+    description: Add  new client in this service.
+                 The following fields must NOT be specified 
+                 ID of Client ,ID of VeteranInfo if applicable
+                 
+
+          
+    body:
+      application/json:
+        example: |
+          { 
+           "ID": 101,
+          "FirstName": "Edward",
+          "MiddleName": "Barnaby",
+          "LastName": "Jones",
+          "NameSuffix": "Sr.",
+          "NameDataQuality": 9,
+          "SSN": "7xxx9xx8x",
+          "SSNDataQuality": 2,
+          "DOB": "2014-11-18",
+          "DOBDataQuality": 1,
+          "Gender": 3,
+          "OtherGender": "intersex",
+          "Ethnicity": 0,
+          "Race": 8,
+          "VeteranStatus": 9,
+          "VeteranInfo": {
+            "ID": 787,
+            "YearEnteredService": "2002",
+            "YearSeparated": "2004",
+            "WorldWarII": "0",
+            "KoreanWar": "99",
+            "VietnamWar": "1",
+            "DesertStorm": "0",
+            "AfghanistanOEF": "8",
+            "IraqOIF": "9",
+            "IraqOND": "99",
+            "OtherTheater": "8",
+            "MilitaryBranch": "8",
+            "DischargeStatus": "6"
+                  }
+            }
+              
+    responses:
+      
+      200:
+        description: Client added successfully.
+        body:
+          application/json:
+            example: |
+              ["ID": 101,
+                "FirstName": "Edward",
+                "MiddleName": "Barnaby",
+                "LastName": "Jones",
+                "NameSuffix": "Sr.",
+                "NameDataQuality": 9,
+                "SSN": "7xxx9xx8x",
+                "SSNDataQuality": 2,
+                "DOB": "2014-11-18",
+                "DOBDataQuality": 1,  
+                "Gender": 3,
+                "OtherGender": "intersex",
+                "Ethnicity": 0,
+                "Race": 8,
+                "VeteranStatus": 9,
+                "VeteranInfo": {
+                "ID": 787,
+                "YearEnteredService": "2002",
+                "YearSeparated": "2004",
+                "WorldWarII": "0",
+                "KoreanWar": "99",
+                "VietnamWar": "1",
+                "DesertStorm": "0",
+                "AfghanistanOEF": "8",
+                "IraqOIF": "9",
+                "IraqOND": "99",
+                "OtherTheater": "8",
+                "MilitaryBranch": "8",
+                "DischargeStatus": "6"
+                    }
+                  
+                  ]
+      201:
+        description: Failed to Add.
+        
+        body: null
+    
+  put:
+    description: Update a client in this service.The following fields must be     specified  PersonalID,ProjectEntryID,VeteranInfoID if applicable
+    body:
+      application/json:
+        example: |
+          { "ID": 101,
+          "FirstName": "Edward",
+          "MiddleName": "Barnaby",
+          "LastName": "Jones",
+          "NameSuffix": "Sr.",
+          "NameDataQuality": 9,
+          "SSN": "7xxx9xx8x",
+          "SSNDataQuality": 2,
+          "DOB": "2014-11-18",
+          "DOBDataQuality": 1,
+          "Gender": 3,
+          "OtherGender": "intersex",
+          "Ethnicity": 0,
+          "Race": 8,
+          "VeteranStatus": 9,
+          "VeteranInfo": {
+            "ID": 787,
+            "YearEnteredService": "2002",
+            "YearSeparated": "2004",
+            "WorldWarII": "0",
+            "KoreanWar": "99",
+            "VietnamWar": "1",
+            "DesertStorm": "0",
+            "AfghanistanOEF": "8",
+            "IraqOIF": "9",
+            "IraqOND": "99",
+            "OtherTheater": "8",
+            "MilitaryBranch": "8",
+            "DischargeStatus": "6"
+                  }
+                  
+               }
+              
+    responses:
+      
+      200:
+        description: Client Updated successfully.
+        body:
+          application/json:
+            example: |
+              [
+                "ID": 101,
+                "FirstName": "Edward",
+                "MiddleName": "Barnaby",
+                "LastName": "Jones",
+                "NameSuffix": "Sr.",
+                "NameDataQuality": 9,
+                "SSN": "7xxx9xx8x",
+                "SSNDataQuality": 2,
+                "DOB": "2014-11-18",
+                "DOBDataQuality": 1,  
+                "Gender": 3,
+                "OtherGender": "intersex",
+                "Ethnicity": 0,
+                "Race": 8,
+                "VeteranStatus": 9,
+                "VeteranInfo": {
+                "ID": 787,
+                "YearEnteredService": "2002",
+                "YearSeparated": "2004",
+                "WorldWarII": "0",
+                "KoreanWar": "99",
+                "VietnamWar": "1",
+                "DesertStorm": "0",
+                "AfghanistanOEF": "8",
+                "IraqOIF": "9",
+                "IraqOND": "99",
+                "OtherTheater": "8",
+                "MilitaryBranch": "8",
+                "DischargeStatus": "6"
+                    }
+                  
+                ]
+      201:
+        description: Failed to Update.
+        
+        body: null
+        
+  /{PersonalID}:
+      get:
+         responses:
+      
+           200:
+            description: Client Details.
+            body:
+              application/json:
+                  example: |
+                    [
+                       "ID": 101,
+                        "FirstName": "Edward",
+                        "MiddleName": "Barnaby",
+                        "LastName": "Jones",
+                        "NameSuffix": "Sr.",
+                        "NameDataQuality": 9,
+                        "SSN": "7xxx9xx8x",      
+                        "SSNDataQuality": 2,
+                        "DOB": "2014-11-18",
+                        "DOBDataQuality": 1,  
+                        "Gender": 3,
+                        "OtherGender": "intersex",
+                        "Ethnicity": 0,
+                        "Race": 8,
+                        "VeteranStatus": 9,
+                        "VeteranInfo": {
+                        "ID": 787,
+                        "YearEnteredService": "2002",
+                        "YearSeparated": "2004",
+                        "WorldWarII": "0",
+                        "KoreanWar": "99",
+                        "VietnamWar": "1",
+                        "DesertStorm": "0",
+                        "AfghanistanOEF": "8",
+                        "IraqOIF": "9",
+                        "IraqOND": "99",
+                        "OtherTheater": "8",
+                        "MilitaryBranch": "8",
+                      "DischargeStatus": "6"
+                      }
+                  
+                      ]
+                      
+           201:
+            description: Failed to Update.
+         body: null         
+           
+               
+      
+  /search: 
+     get:
+      description: Search clients
+      body:
+       application/json:
+         example: |
+           {      "firstName": "john",
+                  "lastName": "smith",
+                  "ssn": "123",  
+                  "sAge": 30,
+                  "eAge": 50,  
+                  "start": 1,
+                  "rows": 10
+                  
+               }
+              
+      responses:
+       200:
+        description: Client Details.
+        body:
+          application/json:
+            example: |
+              [
+                  
+                       "ID": 101,
+                        "FirstName": "Edward",
+                        "MiddleName": "Barnaby",
+                        "LastName": "Jones",
+                        "NameSuffix": "Sr.",
+                        "NameDataQuality": 9,
+                        "SSN": "7xxx9xx8x",      
+                        "SSNDataQuality": 2,
+                        "DOB": "2014-11-18",
+                        "DOBDataQuality": 1,  
+                        "Gender": 3,
+                        "OtherGender": "intersex",
+                        "Ethnicity": 0,
+                        "Race": 8,
+                        "VeteranStatus": 9,
+                        "VeteranInfo": {
+                        "ID": 787,
+                        "YearEnteredService": "2002",
+                        "YearSeparated": "2004",
+                        "WorldWarII": "0",
+                        "KoreanWar": "99",
+                        "VietnamWar": "1",
+                        "DesertStorm": "0",
+                        "AfghanistanOEF": "8",
+                        "IraqOIF": "9",
+                        "IraqOND": "99",
+                        "OtherTheater": "8",
+                        "MilitaryBranch": "8",
+                      "DischargeStatus": "6"
+                      }
+
+                    
+                  
+                ]
+       201:
+        description: Failed to search
+        
+        body: null  
+   
+
+/service/enrollment:
+  displayName: Enrollment Service
+  description: This service is responsible for adding a 
+               Enrollment,update a Enrollment,search Enrollment by ID.Use /service/user/auth service to get access token.
+  post:
+    description: Add  new Enrollment information in this service.
+                 The following fields must NOT be specified ID if exists.
+
+          
+    body:
+      application/json:
+        example: |
+          { 
+           "ID": 5642,
+            "PersonalID": {"ID": 563},
+            "EntryDate": "2016-04-12Z",
+            "HouseholdID": "a34563w",
+            "RelationshipToHoH": "1",
+            "ResidencePrior": "12",
+            "OtherResidencePrior": "some other residence text here",
+            "ResidencePriorLengthOfStay": "8",
+            "ContinuouslyHomelessOneYear": "8",
+            "TimesHomelessPastThreeYears": "0",
+            "MonthsHomelessPastThreeYears": "103",
+            "MonthsHomelessThisTime": "101",
+            "YearsHomeless": "3",
+            "StatusDocumented": "1",
+            "DisablingCondition": "9",
+            "HousingStatus": "6"
+
+            }
+              
+    responses:
+      
+      200:
+        description: Client added successfully.
+        body:
+          application/json:
+            example: |
+              ["ID": 5642,
+                "PersonalID": {"ID": 563},
+                "EntryDate": "2016-04-12Z",
+                "HouseholdID": "a34563w",
+                "RelationshipToHoH": "1",
+                "ResidencePrior": "12",
+                 "OtherResidencePrior": "some other residence text here",
+                "ResidencePriorLengthOfStay": "8",
+                 "ContinuouslyHomelessOneYear": "8",
+                "TimesHomelessPastThreeYears": "0",
+                "MonthsHomelessPastThreeYears": "103",
+                "MonthsHomelessThisTime": "101",
+                "YearsHomeless": "3",
+                "StatusDocumented": "1",
+                "DisablingCondition": "9",
+                "HousingStatus": "6"
+
+                  ]
+      201:
+        description: Failed to Add.
+        
+        body: null
+    
+  put:
+    description: Update Enrollment in this service.The following fields must be specified ID.
+    body:
+      application/json:
+        example: |
+          { "ID": 5642,
+                "PersonalID": {"ID": 563},
+                "EntryDate": "2016-04-12Z",
+                "HouseholdID": "a34563w",
+                "RelationshipToHoH": "1",
+                "ResidencePrior": "12",
+                 "OtherResidencePrior": "some other residence text here",
+                "ResidencePriorLengthOfStay": "8",
+                 "ContinuouslyHomelessOneYear": "8",
+                "TimesHomelessPastThreeYears": "0",
+                "MonthsHomelessPastThreeYears": "103",
+                "MonthsHomelessThisTime": "101",
+                "YearsHomeless": "3",
+                "StatusDocumented": "1",
+                "DisablingCondition": "9",
+                "HousingStatus": "6"
+                  }
+                  
+               }
+              
+    responses:
+      
+      200:
+        description: Enrollment Information Updated successfully.
+        body:
+          application/json:
+            example: |
+              [
+                "ID": 5642,
+                "PersonalID": {"ID": 563},
+                "EntryDate": "2016-04-12Z",
+                "HouseholdID": "a34563w",
+                "RelationshipToHoH": "1",
+                "ResidencePrior": "12",
+                 "OtherResidencePrior": "some other residence text here",
+                "ResidencePriorLengthOfStay": "8",
+                 "ContinuouslyHomelessOneYear": "8",
+                "TimesHomelessPastThreeYears": "0",
+                "MonthsHomelessPastThreeYears": "103",
+                "MonthsHomelessThisTime": "101",
+                "YearsHomeless": "3",
+                "StatusDocumented": "1",
+                "DisablingCondition": "9",
+                "HousingStatus": "6"
+                  
+                ]
+      201:
+        description: Failed to Update.
+        
+        body: null
+        
+  /{PersonalID}:
+      get:
+         body:
+           application/json:
+              example: |
+                { "ID": 5642,
+                "PersonalID": {"ID": 563},
+                "EntryDate": "2016-04-12Z",
+                "HouseholdID": "a34563w",
+                "RelationshipToHoH": "1",
+                "ResidencePrior": "12",
+                 "OtherResidencePrior": "some other residence text here",
+                "ResidencePriorLengthOfStay": "8",
+                 "ContinuouslyHomelessOneYear": "8",
+                "TimesHomelessPastThreeYears": "0",
+                "MonthsHomelessPastThreeYears": "103",
+                "MonthsHomelessThisTime": "101",
+                "YearsHomeless": "3",
+                "StatusDocumented": "1",
+                "DisablingCondition": "9",
+                "HousingStatus": "6"
+                  }
+                  
+                 }
+              
+         responses:
+      
+           200:
+            description: Client Details.
+            body:
+              application/json:
+                  example: |
+                    [
+                       "ID": 101,
+                        "FirstName": "Edward",
+                        "MiddleName": "Barnaby",
+                        "LastName": "Jones",
+                        "NameSuffix": "Sr.",
+                        "NameDataQuality": 9,
+                        "SSN": "7xxx9xx8x",      
+                        "SSNDataQuality": 2,
+                        "DOB": "2014-11-18",
+                        "DOBDataQuality": 1,  
+                        "Gender": 3,
+                        "OtherGender": "intersex",
+                        "Ethnicity": 0,
+                        "Race": 8,
+                        "VeteranStatus": 9,
+                        "VeteranInfo": {
+                        "ID": 787,
+                        "YearEnteredService": "2002",
+                        "YearSeparated": "2004",
+                        "WorldWarII": "0",
+                        "KoreanWar": "99",
+                        "VietnamWar": "1",
+                        "DesertStorm": "0",
+                        "AfghanistanOEF": "8",
+                        "IraqOIF": "9",
+                        "IraqOND": "99",
+                        "OtherTheater": "8",
+                        "MilitaryBranch": "8",
+                      "DischargeStatus": "6"
+                      }
+                  
+                      ]
+                      
+           201:
+             description: Failed to Search.
+             body: null
+/disability:
+  displayName: Disability Service
+  description: This service is responsible for adding a 
+               disability,updating,search disability by ID.
+               Use /service/user/auth service to get access token.
+  post:
+    description: Add  new disability information.
+                 The following fields must NOT be specified ID if exists.
+
+          
+    body:
+      application/json:
+        example: |
+          {
+          "ID": 674,
+           "ProjectEntryID": {"ID": 343},
+            "DisabilityType": "10",
+            "DisabilityResponse": "2",
+            "IndefiniteAndImpairs": "9",
+            "DocumentationOnFile": "1",
+            "ReceivingServices": "99",
+            "PATHHowConfirmed": "1",
+            "PATHSMIInformation": "3"
+              
+          }              
+    responses:
+      
+      200:
+        description: disability added successfully.
+        body:
+          application/json:
+            example: |
+               [ "ID": 674,
+                 "ProjectEntryID": {"ID": 343},
+                  "DisabilityType": "10",
+                   "DisabilityResponse": "2",
+                   "IndefiniteAndImpairs": "9",
+                   "DocumentationOnFile": "1",
+                    "ReceivingServices": "99",
+                   "PATHHowConfirmed": "1",
+                    "PATHSMIInformation": "3"
+
+                ]
+      201:
+        description: Failed to Add.
+        
+        body: null
+    
+  put:
+    description: Update disability in this service.The following fields must be specified ID.
+    body:
+      application/json:
+        example: |
+          { "ID": 674,
+              "ProjectEntryID": {"ID": 343},
+              "DisabilityType": "10",
+              "DisabilityResponse": "2",
+              "IndefiniteAndImpairs": "9",
+              "DocumentationOnFile": "1",
+              "ReceivingServices": "99",
+              "PATHHowConfirmed": "1",
+              "PATHSMIInformation": "3"
+
+           }
+              
+    responses:
+      
+      200:
+        description: disability Information Updated successfully.
+        body:
+          application/json:
+            example: |
+              [
+                "ID": 674,
+                "ProjectEntryID": {"ID": 343},
+                "DisabilityType": "10",
+                "DisabilityResponse": "2",
+                "IndefiniteAndImpairs": "9",
+                "DocumentationOnFile": "1",
+                "ReceivingServices": "99",
+                "PATHHowConfirmed": "1",
+                "PATHSMIInformation": "3"
+
+                ]
+      201:
+        description: Failed to Update.
+        
+        body: null
+        
+  /{DisabilitiesID}:
+      get:
+         body:
+           application/json:
+              example: |
+                { 
+                 }
+              
+         responses:
+      
+           200:
+            description: disability Details.
+            body:
+              application/json:
+                  example: |
+                    ["ID": 674,
+                        "ProjectEntryID": {"ID": 343},
+                        "DisabilityType": "10",
+                        "DisabilityResponse": "2",
+                        "IndefiniteAndImpairs": "9",
+                        "DocumentationOnFile": "1",
+                        "ReceivingServices": "99",
+                        "PATHHowConfirmed": "1",
+                        "PATHSMIInformation": "3
+                  
+                      ]
+                      
+           201:
+             description: Failed to Search.
+             body: null
+/doe:
+  displayName: DateofEngagement  Service
+  description: This service is responsible for adding a 
+               DateofEngagement,updating,search DateofEngagement by ID.Use /service/user/auth service to get access token.
+  post:
+    description: Add  new DateofEngagement information.
+                 The following fields must NOT be specified ID.
+
+          
+    body:
+      application/json:
+        example: |
+          {
+          "ID": 4321,
+          "ProjectEntryID": {"ID": 343},
+          "DateOfEngagement": "2016-04-17"
+
+          }
+              
+    responses:
+      
+      200:
+        description: DateofEngagement added successfully.
+        body:
+          application/json:
+            example: |
+               [  "ID": 4321,
+                  "ProjectEntryID": {"ID": 343},
+                  "DateOfEngagement": "2016-04-17"
+
+                ]
+      201:
+        description: Failed to Add.
+        
+        body: null
+    
+  put:
+    description: Update DateofEngagement in this service.The following fields must be specified ID.
+    body:
+      application/json:
+        example: |
+          {  "ID": 4321,
+            "ProjectEntryID": {"ID": 343},
+             "DateOfEngagement": "2016-04-17"
+
+           }
+              
+    responses:
+      
+      200:
+        description: DateofEngagement Information Updated successfully.
+        body:
+          application/json:
+            example: |
+              [
+                 "ID": 4321,
+                "ProjectEntryID": {"ID": 343},
+               "DateOfEngagement": "2016-04-17"
+
+                ]
+      201:
+        description: Failed to Update.
+        
+        body: null
+        
+  /{DateOfEngagementID}:
+      get:
+         body:
+           application/json:
+              example: |
+                { 
+                 }
+              
+         responses:
+      
+           200:
+            description: DateofEngagement Details.
+            body:
+              application/json:
+                  example: |
+                    ["ID": 4321,
+                      "ProjectEntryID": {"ID": 343},
+                       "DateOfEngagement": "2016-04-17"
+                      ]
+                      
+           201:
+             description: Failed to Search.
+             body: null
+
+/pathstatus:
+   displayName: Pathstatus  Service
+   description: This service is responsible for adding a 
+               Pathstatus,updating,search Pathstatus Information by ID.Use /service/user/auth service to get access token.
+   post:
+     description: Add new Pathstatus information.
+                 The following fields must NOT be specified ID if exists.
+
+          
+     body:
+      application/json:
+        example: |
+          {
+          "ID": 453332,
+          "ProjectEntryID": {"ID": 343},
+          "DateOfStatus": "2016-04-23",  
+          "ClientEnrolledInPATH": "0",
+          "ReasonNotEnrolled": "2"
+          }
+              
+     responses:
+      
+      200:
+        description: Pathstatus Information added successfully.
+        body:
+          application/json:
+            example: |
+               [  "ID": 453332,
+                  "ProjectEntryID": {"ID": 343},
+                  "DateOfStatus": "2016-04-23",
+                  "ClientEnrolledInPATH": "0",
+                  "ReasonNotEnrolled": "2"
+
+                ]
+      201:
+        description: Failed to Add.
+        
+        body: null
+    
+   put:
+    description: Update Pathstatus in this service.The following fields must be specified ID.
+    body:
+      application/json:
+        example: |
+          {  "ID": 453332,
+            "ProjectEntryID": {"ID": 343},  
+            "DateOfStatus": "2016-04-23",
+            "ClientEnrolledInPATH": "0",
+            "ReasonNotEnrolled": "2"
+          }
+              
+    responses:
+      
+      200:
+        description: Pathstatus Information Updated successfully.
+        body:
+          application/json:
+            example: |
+              ["ID": 453332,
+                "ProjectEntryID": {"ID": 343},
+                "DateOfStatus": "2016-04-23",
+                "ClientEnrolledInPATH": "0",
+                "ReasonNotEnrolled": "2"
+              ]
+      201:
+        description: Failed to Update.
+        
+        body: null
+        
+    
+   /{PathStatusID}:
+      get:
+         body:
+           application/json:
+              example: |
+                { 
+                 }
+              
+         responses:
+      
+           200:
+            description: Pathstatus Details.
+            body:
+              application/json:
+                  example: |
+                    ["ID": 453332,
+                    "ProjectEntryID": {"ID": 343},
+                    "DateOfStatus": "2016-04-23",
+                    "ClientEnrolledInPATH": "0",
+                    "ReasonNotEnrolled": "2"
+
+                      ]
+                      
+           201:
+             description: Failed to Search.
+             body: null
+             
+/referralsrc:
+
+   displayName: ReferralSource Service
+   description: This service is responsible for adding a 
+               ReferralSource,updating,search ReferralSource Information by ID.Use /service/user/auth service to get access token.
+   post:
+     description: Add new ReferralSource information to existing client,enrollment the following fields must NOT be specified ID.
+
+          
+     body:
+      application/json:
+        example: |
+          {
+          "ID": 34343,
+          "ProjectEntryID": {"ID": 343},
+          "ReferralSource": "18",
+          "CountOutreachReferralApproaches": "3"
+
+          }
+              
+     responses:
+      
+      200:
+        description: ReferralSource Information added successfully.
+        body:
+          application/json:
+            example: |
+               [  "ID": 34343,
+                  "ProjectEntryID": {"ID": 343},
+                  "ReferralSource": "18",
+                  "CountOutreachReferralApproaches": "3"
+
+
+                ]
+      201:
+        description: Failed to Add.
+        
+        body: null
+    
+   put:
+    description: Update ReferralSource in this service.The following fields must be specified ID.
+    body:
+      application/json:
+        example: |
+          {  "ID": 34343,
+            "ProjectEntryID": {"ID": 343},    
+            "ReferralSource": "18",
+            "CountOutreachReferralApproaches": "3"
+
+          }
+              
+    responses:
+      
+      200:
+        description: ReferralSource Information Updated successfully.
+        body:
+          application/json:
+            example: |
+              ["ID": 34343,
+                "ProjectEntryID": {"ID": 343},
+                "ReferralSource": "18",
+                "CountOutreachReferralApproaches": "3"
+
+              ]
+      201:
+        description: Failed to Update.
+        
+        body: null
+        
+    
+   /{ReferralSourceID}:
+      get:
+         body:
+           application/json:
+              example: |
+                { 
+                 }
+              
+         responses:
+      
+           200:
+            description: ReferralSource Details.
+            body:
+              application/json:
+                  example: |
+                    ["ID": 34343,
+                      "ProjectEntryID": {"ID": 343},
+                        "ReferralSource": "18",
+                        "CountOutreachReferralApproaches": "3"
+
+                      ]
+                      
+           201:
+             description: Failed to Search.
+             body: null
+/services:
+  displayName: Services Service
+  description: This service is responsible for adding a 
+               Services,updating,search Services Information by ID.Use /service/user/auth service to get access token.
+  post:
+     description: Add new Services information to existing client,enrollment,the following fields must NOT be specified ID if exists.
+
+          
+     body:
+       application/json:
+         example: |
+          "ID": "44gg",
+          "ProjectEntryID": {"ID": "343"},
+          "DateProvided": "2015-09-06",
+          "RecordType": "16",
+          "TypeProvided": "11",
+          "OtherTypeProvided": "some other type here",
+          "SubTypeProvided": "12",
+          "FAAmount": "1145.59",    
+          "ReferralOutcome": "2"
+
+          }
+              
+     responses:
+      
+      200:
+        description: Services Information added successfully.
+        body:
+          application/json:
+            example: |
+               [  "ID": "44gg",
+                  "ProjectEntryID": {"ID": "343"},
+                  "DateProvided": "2015-09-06",
+                  "RecordType": "16",
+                  "TypeProvided": "11",    
+                  "OtherTypeProvided": "some other type here",
+                  "SubTypeProvided": "12",
+                  "FAAmount": "1145.59",
+                  "ReferralOutcome": "2"
+
+
+                ]
+      201:
+        description: Failed to Add.
+        
+        body: null
+    
+  put:
+    description: Update Services in this service.The following fields must be specified ID.
+    body:
+      application/json:
+        example: |
+          {  "ID": "44gg",
+              "ProjectEntryID": {"ID": "343"},
+              "DateProvided": "2015-09-06",  
+              "RecordType": "16",
+              "TypeProvided": "11",
+              "OtherTypeProvided": "some other type here",
+              "SubTypeProvided": "12",    
+              "FAAmount": "1145.59",
+              "ReferralOutcome": "2"
+
+
+          }
+              
+    responses:
+      
+      200:
+        description: Services Information Updated successfully.
+        body:
+          application/json:
+            example: |
+              ["ID": "44gg",
+                "ProjectEntryID": {"ID": "343"},
+                "DateProvided": "2015-09-06",
+                "RecordType": "16",        
+                "TypeProvided": "11",
+                "OtherTypeProvided": "some other type here",
+                "SubTypeProvided": "12",
+                "FAAmount": "1145.59",
+                "ReferralOutcome": "2"
+
+              ]
+      201:
+        description: Failed to Update.
+        
+        body: null
+        
+    
+  /{ServicesID}:
+      get:
+         body:
+           application/json:
+              example: |
+                { 
+                 
+                 }
+              
+         responses:
+      
+           200:
+            description: Services Details.
+            body:
+              application/json:
+                  example: |
+                    [
+                        "ID": "44gg",
+                        "ProjectEntryID": {"ID": "343"},
+                        "DateProvided": "2015-09-06",
+                        "RecordType": "16",        
+                        "TypeProvided": "11",
+                        "OtherTypeProvided": "some other type here",
+                        "SubTypeProvided": "12",
+                      "FAAmount": "1145.59",
+                      "ReferralOutcome": "2"
+
+                      ]
+                      
+           201:
+             description: Failed to Search.
+             body: null
+             
+/lov/{LOVNAME}:
+     get:
+         body:
+           application/json:
+              example: |
+                { 
+                 
+                 }
+              
+         responses:
+      
+           200:
+            description: Services Details.
+            body:
+              application/json:
+                  example: |
+                    [
+                        "id": 26,
+                        "name": "No",
+                        "value": "0"
+
+
+                      ]
+                      
+           201:
+             description: Failed to Search.
+             body: null
+     /{LOVValue}:
+     
+      get:
+         body:
+           application/json:
+              example: |
+                { 
+                 
+                 }
+              
+         responses:
+      
+           200:
+            description: Services Details.
+            body:
+              application/json:
+                  example: |
+                    [
+                        "id": 26,
+                        "name": "No",
+                        "value": "0"
+
+
+                      ]
+                      
+           201:
+             description: Failed to Search.
+             body: null
