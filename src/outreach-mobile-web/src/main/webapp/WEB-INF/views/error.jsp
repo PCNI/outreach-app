@@ -16,18 +16,32 @@
     </head>
 
     <body>
-        <div data-role="page">
-            <div data-role="header" class="mheader">
-                <h1>Login</h1>
-            </div>
-            <div data-role="main" class="ui-content maincontent">
-                <div class="logo"> <img src="${contextPath}/resources/img/logo.jpg" width="265" height="99"> </div>
-                <div class="loginform">
-                    <c:if test="${not empty message}">
-                        <p style="color: red !important; text-align: center;">${message}</p>
-                    </c:if>
+                <div data-role="page" id="error-info">
+            <script>
+                $(document).on('pageinit', function () {
+                    var msg = "Error processing the request."
+                    //alert("Action has been completed successfully");
+                    $("#errorHref").click(function () {
+                        $("#errorDialog #errorStatus ").html("Bad Request");
+                        $("#errorDialog #errorMsg").html(msg);
+                    });
+                    $("#errorHref").click();
+                });
+            </script>    
+            <a id='errorHref' href="#errorDialog" data-rel="popup" data-position-to="window"
+               data-transition="pop" style='display:none;'></a>
+            <div data-role="popup" id="errorDialog" data-overlay-theme="b" data-theme="a" 
+                 style="max-width:400px;">
+                <div data-role="header" data-theme="c">
+                    <h1 id="errorStatus" style="color: red !important;">Bad Request !</h1>
                 </div>
-            </div>
+                <div role="main" class="ui-content">
+                    <h3 class="clientmenu" id="errorMsg"></h3>
+                       <a href="${contextPath}/ui" class=" blubtn mtp40 ui-btn ui-shadow ui-corner-all"   data-role="button" 
+                               data-transition="slide" >Ok</a>
+    
+                </div>
+            </div>        
         </div>
     </body>
 </html>

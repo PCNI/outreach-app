@@ -27,7 +27,6 @@ public class ReferralSource extends AbstractEntity {
     private Integer referralSource;
 
     @Basic(optional = false)
-    @NotNull
     @Column(name = "CountOutreachReferralApproached")
     private Integer countOutreachReferralApproached;
 

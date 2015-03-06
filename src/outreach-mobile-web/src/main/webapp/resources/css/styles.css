@@ -26,7 +26,7 @@ body{font-family: 'pm-regular' !important; color:#4e5153 !important; font-weight
 h1, h2, h3, h4, h5{ padding:0px; margin:0px; font-weight:normal; }
 h3{font-family: 'pm-bold'; color:#4e5153; font-weight:normal !important; font-size:18px !important;}
 h4{font-family: 'pm-bold'; color:#4e5153; font-weight:normal !important; font-size:15px !important;}
-h5{font-family: 'pm-regular';  color:#4e5153;  font-weight:normal !important; font-size:13px !important;}
+h5{font-family: 'pm-regular';  color:#0479b4;  font-weight:bold !important; font-size:13px !important;}
 p{font-family: 'pm-regular';  color:#4e5153;  font-weight:normal !important; font-size:15px !important;}
 p.tmini{ font-size:11px !important; padding:10px 0px; margin:0px;}
 .txtcenter{ text-align:center !important}
@@ -194,19 +194,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', end
 .sresult ul li.nopad .ui-grid-a .ui-block-a .ui-bar-a{ border:none;}
 .sresult ul li.nopad .ui-grid-a .ui-block-b .ui-bar-a{ border-right:none; border-top:none; border-bottom:none; padding-left:10px;}
 .sresult ul li.nopad .ui-grid-a .ui-block-b .ui-bar-a .ui-bar-a { padding-left:0px !important; border:none !important}
-.sresult ul li{  margin:0px; list-style:none;  padding:12px 0px; border-bottom:1px solid #e3e4e3; background:url(../img/r-arrow.jpg) right center no-repeat}
-.sresult ul li .clientmenu span{ display:block; float:right; padding-right:25px; font-weight:normal; font-family: 'pm-regular'; font-size:13px;}
+.sresult ul li{  margin:0px; list-style:none;  padding:12px 0px; background:url(../img/r-arrow.jpg) right center no-repeat}
+.sresult ul li .clientmenu span{ display:block; float:left; padding-right:25px; font-weight:normal; font-family: 'pm-regular'; font-size:1em;}
 .sresult ul li a{ background:none !important; background-image:none !important; text-decoration:none; font-weight:normal; color:#3d4042 !important}
 .sresult ul li a:after{ background:none !important}
 .nobg{ background:none !important;}
 .userimg{ width:75px; display:inline-block}
-.userimg img{ max-width:100%; height:auto; -webkit-border-radius: 75px; -moz-border-radius: 75px;border-radius: 75px;}
+.userimg img{ max-width:100%; height:auto; -webkit-border-radius: 75px !important; -moz-border-radius: 75px !important;border-radius: 75px !important;}
 .userdesc{ display:inline-block; vertical-align:top; padding:10px 0px 0px 20px;}
 
 .userdesc h4, h5{ padding:0px; margin:0px;}
 .hdright{ background:none !important; border:none !important; padding:0px !important; box-shadow:none !important; vertical-align:middle  }
 .hdright img{ width:40px; height:32px; padding-top:6px}
-.contscroll{ border:1px solid #e3e4e3; padding:10px; max-height:470px; height:auto; overflow-y:scroll; font-size:14px;} 
+.contscroll{ border:1px solid #e3e4e3; padding:10px; max-height:300px; height:auto; overflow-y:scroll; font-size:14px;} 
 .rightarrow{ background:url(../img/r-arrow.jpg) right center no-repeat}
 .cvcard{ background:#f1f2f3; min-height:160px; margin-bottom:20px;}
 .cvarddesc{ padding-right:15px; position:relative}
@@ -249,8 +249,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 box-shadow: 40px 40px 123px 0px rgba(0,0,0,1);
 border:1px solid #e4e6e8;
 }
-#menu ul li a{ background:none !important; border:none !important; color:#fff !important; font-weight:normal !important; text-align:left !important; padding:0px 0px 0px 40px !important; background-image:none !important; font-size:15px;}
-#menu ul li a:after{ background:none !important; background-image:none !important}
+.push-menu ul li a{ background:none !important; border:none !important; color:#fff !important; font-weight:normal !important; text-align:left !important; padding:0px 0px 0px 40px !important; background-image:none !important; font-size:15px;}
+.push-menu ul li a:after{ background:none !important; background-image:none !important}
 .rightcounter .ui-bar.ui-bar-a{ padding:0px !important;}
 input {
 	font-size: 2.4em;
@@ -301,3 +301,10 @@ button:hover, button:active, button:focus {
 .marrt{ margin-right:20px !important;}
 @media (max-width:470px){.calicon{ position:absolute; top:72px; right:0px}}
  
+label.error{
+    color: red !important;
+}
+
+.ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year { width: 49%;}

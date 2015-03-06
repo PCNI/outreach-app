@@ -58,6 +58,8 @@ public class ClientDaoImpl extends AbstractJPADao<Client, Integer>
                     .setParameter("ssn", "%" + ssn + "%")
                     .setParameter("startDate", startDate)
                     .setParameter("endDate", endDate)
+                    .setFirstResult(0)
+                    .setMaxResults(20)
                     .getResultList();
         } catch (Exception ex) {
             LOG.error(LoggerUtils.getStackTrace(ex));

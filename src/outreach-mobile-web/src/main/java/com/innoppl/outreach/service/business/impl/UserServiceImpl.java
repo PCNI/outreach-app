@@ -1,10 +1,13 @@
 package com.innoppl.outreach.service.business.impl;
 
 import com.innoppl.outreach.data.dao.UserDao;
+import com.innoppl.outreach.data.dao.UserInfoDao;
 import com.innoppl.outreach.data.model.OUser;
+import com.innoppl.outreach.data.model.UserInfo;
 import com.innoppl.outreach.service.Errors;
 import com.innoppl.outreach.service.ServiceException;
 import com.innoppl.outreach.service.business.UserService;
+import java.security.Principal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
@@ -26,10 +29,38 @@ public class UserServiceImpl implements UserService {
             = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
-    private BCryptPasswordEncoder bcryptEncoder;
-
-    @Autowired
     private UserDao userDao;
+    
+    @Autowired
+    private UserInfoDao userInfoDao;
+    
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public UserInfo authenticate(final String userName, final String password)
+            throws ServiceException {
+        final UserInfo userInfo = userInfoDao.findByUserName(userName);
+        if (userInfo != null) {
+            if (userInfo.getPasswordEnc().equals(password)) {
+                return userInfo;
+            } else {
+                throw new ServiceException(Errors.E_INVALID_PASSWORD);
+            }
+        } else {
+            throw new ServiceException(Errors.E_USER_NOT_FOUND);
+        }
+    }    
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public OUser verifyToken(String token) throws ServiceException {
+        final OUser oUser = userDao.verifyToken(token);
+        if (oUser != null && oUser.getTokenExpiry().after(new Date())) {
+            return resetTokenExpiry(oUser);
+        } else {
+            return null;
+        }
+    }
 
     /**
      * Reset auth token and token expiry
@@ -38,11 +69,13 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     private OUser resetToken(final OUser oUser) {
-        final String token = UUID.randomUUID().toString();
-        oUser.setToken(token);
+        if (oUser.getToken() == null) {
+            final String token = UUID.randomUUID().toString();
+            oUser.setToken(token);
+        }
         final Calendar tokenExpiryCal = Calendar.getInstance();
         // Set token expiry to 5 minutes
-        tokenExpiryCal.add(Calendar.MINUTE, 5);
+        tokenExpiryCal.add(Calendar.MINUTE, 30);
         oUser.setTokenExpiry(tokenExpiryCal.getTime());
         return userDao.save(oUser, oUser.getId());
     }
@@ -55,36 +88,30 @@ public class UserServiceImpl implements UserService {
     private OUser resetTokenExpiry(final OUser oUser) {
         final Calendar tokenExpiryCal = Calendar.getInstance();
         // Set token expiry to 1 hour
-        tokenExpiryCal.add(Calendar.HOUR, 1);
+        tokenExpiryCal.add(Calendar.MINUTE, 30);
         oUser.setTokenExpiry(tokenExpiryCal.getTime());
         return userDao.save(oUser, oUser.getId());
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
-    public OUser authenticate(final String email, final String password)
-            throws ServiceException {
-        LOG.debug("Encoded Password: " + bcryptEncoder.encode(password));
-        final OUser oUser = userDao.findByEmail(email);
-        if (oUser != null && oUser.getIsDeleted() == 0) {
-            if (bcryptEncoder.matches(password, oUser.getPassword())) {
-                return resetToken(oUser);
-            } else {
-                throw new ServiceException(Errors.E_INVALID_PASSWORD);
-            }
-        } else {
-            throw new ServiceException(Errors.E_USER_NOT_FOUND);
-        }
+    public OUser resetToken(String userName) throws ServiceException {
+        return null; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public UserInfo findUserByPrincipal(Principal principal) {
+        final String userName = principal.getName().split("/")[0];
+        return userInfoDao.findByUserName(userName);
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
-    public OUser verifyToken(String token) throws ServiceException {
-        final OUser oUser = userDao.verifyToken(token);
-        if (oUser != null && oUser.getTokenExpiry().after(new Date())) {
-            return resetTokenExpiry(oUser);
-        } else {
-            return null;
-        }
+    public OUser findUserByEmail(String email) {
+        return null;//To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public String resetPassword(String email) throws ServiceException {
+        return null;//To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }

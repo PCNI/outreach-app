@@ -1,5 +1,6 @@
 package com.innoppl.outreach.data.model;
 
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
@@ -7,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -19,22 +23,24 @@ import javax.validation.constraints.NotNull;
 public class PATHStatus extends AbstractEntity {
 
     private static final long serialVersionUID = 1L;
-   
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "DateOfStatus")
-    private Integer dateOfStatus;
-    
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date dateOfStatus;
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "ClientEnrolledInPATH")
     private Integer clientEnrolledInPATH;
-    
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "ReasonNotEnrolled")
     private Integer reasonNotEnrolled;
-    
+
     @JoinColumn(name = "ProjectEntryID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Enrollment projectEntryID;
@@ -46,11 +52,11 @@ public class PATHStatus extends AbstractEntity {
         this.id = id;
     }
 
-    public Integer getDateOfStatus() {
+    public Date getDateOfStatus() {
         return dateOfStatus;
     }
 
-    public void setDateOfStatus(Integer dateOfStatus) {
+    public void setDateOfStatus(Date dateOfStatus) {
         this.dateOfStatus = dateOfStatus;
     }
 

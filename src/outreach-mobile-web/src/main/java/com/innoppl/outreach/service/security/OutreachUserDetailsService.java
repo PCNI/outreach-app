@@ -1,6 +1,7 @@
 package com.innoppl.outreach.service.security;
 
 import com.innoppl.outreach.data.model.OUser;
+import com.innoppl.outreach.data.model.UserInfo;
 import com.innoppl.outreach.service.logger.InjectLogging;
 import com.innoppl.outreach.service.logger.LogLevel;
 import com.innoppl.outreach.service.rest.ExceptionHelper;
@@ -42,12 +43,12 @@ public class OutreachUserDetailsService implements UserDetailsService {
             throws UsernameNotFoundException {
 
         try {
-            final OUser user
+            final UserInfo user
                     = getUser(userName);
-            return new User(user.getEmail() + "/" + user.getFirstName() + "/"
-                    + (user.getLastName() != null ? user.getLastName() : " "),
-                    user.getPassword(),
-                    true, true, true, true, getAuthorities(user.getRole().getId()));
+            return new User(user.getUserId()+ "/" + user.getNameFirst() + "/"
+                    + (user.getNameLast() != null ? user.getNameLast() : " "),
+                    user.getPasswordEnc(),
+                    true, true, true, true, getAuthorities());
 
         } catch (Exception ex) {
             LOG.error("Error in retrieving user. " + userName + ", "
@@ -58,9 +59,10 @@ public class OutreachUserDetailsService implements UserDetailsService {
 
     /**
      *
-     * @param userId
+     * @param roleId
      * @return
      */
+    @Deprecated
     private String getRoles(final Integer roleId) {
         try {
             final String roleName
@@ -78,14 +80,14 @@ public class OutreachUserDetailsService implements UserDetailsService {
 
     /**
      *
-     * @param emailId
-     * @return {@link McfUser}
+     * @param userName
+     * @return {@link oUser}
      */
-    private OUser getUser(final String emailId) {
+    private UserInfo getUser(final String userName) {
         try {
-            return (OUser) this.entityManager.createQuery(
-                    "select t from OUser t where t.email = :emailId and t.isDeleted = 0")
-                    .setParameter("emailId", emailId).getSingleResult();
+            return (UserInfo) this.entityManager.createQuery(
+                    "select t from UserInfo t where t.userId = :userName")
+                    .setParameter("userName", userName).getSingleResult();
         } catch (NoResultException ex) {
             LOG.error("Error in retrieving user. "
                     + ExceptionHelper.getStackTrace(ex));
@@ -95,19 +97,11 @@ public class OutreachUserDetailsService implements UserDetailsService {
 
     /**
      *
-     * @param access
      * @return {@link GrantedAuthority} list
      */
-    public Collection<GrantedAuthority> getAuthorities(
-            final Integer access) {
+    public Collection<GrantedAuthority> getAuthorities() {
         final List<GrantedAuthority> aList = new ArrayList<>(1);
-        if (access != null) {
-            final String accessName = getRoles(access.intValue());
-            if (accessName != null) {
-                LOG.debug("Grant " + accessName + " to this user");
-                aList.add(new SimpleGrantedAuthority(accessName));
-            }
-        }
+        aList.add(new SimpleGrantedAuthority("User"));
         return aList;
     }
 }

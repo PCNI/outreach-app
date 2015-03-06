@@ -27,10 +27,6 @@ public class ORole extends AbstractEntity {
     @Column(name = "name")
     private String name;
     
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "role")
-    private List<OUser> userList;
-
     public ORole() {
     }
 
@@ -45,12 +41,4 @@ public class ORole extends AbstractEntity {
     public void setName(String name) {
         this.name = name;
     }
-
-    public List<OUser> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<OUser> userList) {
-        this.userList = userList;
-    }   
 }

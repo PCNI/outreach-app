@@ -32,4 +32,19 @@ public class LOVDaoImpl extends AbstractJPADao<LOV, Integer>
             return null;
         }
     }
+
+    @Override
+    public LOV findByTypeAndValue(Integer type, String value) {
+        try {
+            return (LOV) getEntityManager().createQuery(
+                    "select u from LOV u where u.lovType = :type"
+                    + " and u.valueString = :value and u.isDeleted = 0")
+                    .setParameter("type", type)
+                    .setParameter("value", value)
+                    .getSingleResult();
+        } catch (Exception ex) {
+            LOG.error(LoggerUtils.getStackTrace(ex));
+            return null;
+        }
+    }
 }

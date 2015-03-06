@@ -1,20 +1,25 @@
 package com.innoppl.outreach.service.rest.controller.beans;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 /**
  *
  * @author Jerald Mejarla
  */
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LoginRequest {
     
-    private String email;
+    private String userName;
     private String password;
 
-    public String getEmail() {
-        return email;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {

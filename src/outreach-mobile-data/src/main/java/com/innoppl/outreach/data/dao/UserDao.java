@@ -10,13 +10,6 @@ public interface UserDao extends AbstractDao<OUser, Integer>{
     
     /**
      *
-     * @param email
-     * @return
-     */
-    OUser findByEmail(final String email);
-    
-    /**
-     *
      * @param token
      * @return
      */

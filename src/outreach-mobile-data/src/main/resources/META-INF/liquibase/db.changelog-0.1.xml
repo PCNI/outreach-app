@@ -5,26 +5,21 @@
             <column autoIncrement="true" name="ID" type="INT">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="FirstName" type="VARCHAR(45)">
-                <constraints nullable="false"/>
+            <column name="FirstName" type="VARCHAR(256)">
             </column>
-            <column name="MiddleName" type="VARCHAR(45)">
-                <constraints nullable="false"/>
+            <column name="MiddleName" type="VARCHAR(256)">
             </column>
-            <column name="LastName" type="VARCHAR(45)">
-                <constraints nullable="false"/>
+            <column name="LastName" type="VARCHAR(256)">
             </column>
             <column name="NameDataQuality" type="INT">
                 <constraints nullable="false"/>
             </column>
             <column name="SSN" type="VARCHAR(45)">
-                <constraints nullable="false"/>
             </column>
             <column name="SSNDataQuality" type="INT">
                 <constraints nullable="false"/>
             </column>
             <column name="DOB" type="datetime">
-                <constraints nullable="false"/>
             </column>
             <column name="Gender" type="INT">
                 <constraints nullable="false"/>
@@ -121,10 +116,8 @@
                 <constraints nullable="false"/>
             </column>
             <column name="HouseholdID" type="VARCHAR(45)">
-                <constraints nullable="false"/>
             </column>
             <column name="RelationshipToHoH" type="INT">
-                <constraints nullable="false"/>
             </column>
             <column name="ResidencePrior" type="INT"/>
             <column name="OtherResidencePrior" type="VARCHAR(45)"/>
@@ -2702,6 +2695,272 @@
             <column name="LOVType" valueNumeric="28"/>
             <column name="ValueString" value="99"/>
             <column name="DisplayName" value="Data not collected"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Jerald" id="20141230-1">
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="12"/>
+            <column name="DisplayName" value="Contact"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="14"/>
+            <column name="DisplayName" value="Services Provided"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="15"/>
+            <column name="DisplayName" value="Financial Assistance"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="16"/>
+            <column name="DisplayName" value="Referrals Provided"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="141"/>
+            <column name="DisplayName" value="PATH service"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="142"/>
+            <column name="DisplayName" value="RHY service"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="143"/>
+            <column name="DisplayName" value="HOPWA service"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="144"/>
+            <column name="DisplayName" value="SSVF service"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="151"/>
+            <column name="DisplayName" value="HOPWA financial assistance"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="152"/>
+            <column name="DisplayName" value="SSVF financial assistance"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="161"/>
+            <column name="DisplayName" value="PATH referral"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="162"/>
+            <column name="DisplayName" value="RHY referral"/>
+        </insert>
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="29"/>
+            <column name="ValueString" value="200"/>
+            <column name="DisplayName" value="Bed night"/>
+        </insert>
+        <dropForeignKeyConstraint baseTableName="Services" constraintName="fk_services_ProjectEntryID"/>
+        <dropTable tableName="Services"/>
+        <createTable tableName="Services">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ProjectEntryID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DateProvided" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RecordType" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TypeProvided" type="INT">
+            </column>
+            <column name="OtherTypeProvided" type="INT">
+            </column>
+            <column name="SubTypeProvided" type="INT">
+            </column>
+            <column name="FAAmount" type="Decimal(10,2)">
+            </column>
+            <column name="ReferralOutcome" type="INT">
+            </column>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="ProjectEntryID" baseTableName="Services" constraintName="fk_services_ProjectEntryID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Enrollment"/>
+                
+    </changeSet>
+    <changeSet author="Jerald" id="20141230-2">
+        <modifyDataType tableName="Services" columnName="OtherTypeProvided" newDataType="VARCHAR(128)"/>
+    </changeSet>    
+    <changeSet author="Jerald" id="20150105-1">
+        <modifyDataType tableName="PATHStatus" columnName="DateOfStatus" newDataType="datetime"/>
+        <modifyDataType tableName="Services" columnName="DateProvided" newDataType="datetime"/>
+    </changeSet>    
+    <changeSet author="Jerald" id="20150105-2">
+        <dropTable tableName="Disabilities"/>
+        <createTable tableName="Disabilities">
+            <column autoIncrement="true" name="ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ProjectEntryID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DisabilityType" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DisabilityResponse" type="INT">
+            </column>
+            <column name="IndefiniteAndImpairs" type="INT">
+            </column>
+            <column name="DocumentationOnFile" type="INT">
+            </column>
+            <column name="ReceivingServices" type="INT">
+            </column>
+            <column name="PATHHowConfirmed" type="INT"/>
+            <column name="PATHSMIInformation" type="INT"/>
+            <column name="dateCreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dateDeleted" type="datetime"/>
+            <column name="dateUpdated" type="datetime"/>
+            <column name="userID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="isDeleted" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Jerald" id="20150113-1">
+        <addForeignKeyConstraint baseColumnNames="ProjectEntryID" baseTableName="Disabilities" constraintName="fk_disabilities_ProjectEntryID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="Enrollment"/>
+        <addColumn tableName="OUser">
+            <column name="userName" type="VARCHAR(256)" beforeColumn="password"/>
+        </addColumn>
+        <dropNotNullConstraint tableName="OUser" columnName="email" columnDataType="VARCHAR(256)"/>
+    </changeSet>
+    <changeSet author="Jerald" id="20150114-1">
+        <addColumn tableName="Enrollment">
+            <column name="exitDate" type="datetime"/>
+        </addColumn>        
+    </changeSet>
+    <changeSet author="Jerald" id="20150302-1">
+        <createTable tableName="USER_INFO">
+            <column autoIncrement="true" name="USER_KEY" type="BIGINT(20)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="AGENCY_KEY" type="BIGINT(20)"/>
+            <column name="USER_ID" type="VARCHAR(200)"/>
+            <column name="PASSWORD_ENC" type="VARCHAR(200)"/>
+            <column name="PW_EXPIRE_DATE" type="DATE"/>
+            <column name="NAME_FIRST" type="VARCHAR(200)"/>
+            <column name="NAME_LAST" type="VARCHAR(200)"/>
+            <column name="USER_ACTIVE_GCT" type="INT(11)"/>
+            <column name="REC_ACTIVE_GCT" type="INT(11)"/>
+            <column name="ENTRY_DATE_TIME" type="TIMESTAMP"/>
+            <column name="ENTRY_USER_KEY" type="BIGINT(20)"/>
+            <column name="LOG_DATE_TIME" type="TIMESTAMP"/>
+            <column name="LOG_USER_KEY" type="BIGINT(20)"/>
+        </createTable>
+        <sql dbms="mysql">ALTER TABLE USER_INFO CHANGE COLUMN LOG_DATE_TIME LOG_DATE_TIME TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</sql>        
+        <dropForeignKeyConstraint baseTableName="OUser" constraintName="fk_user_project"></dropForeignKeyConstraint>
+        <dropForeignKeyConstraint baseTableName="OUser" constraintName="fk_user_role"></dropForeignKeyConstraint>
+        <dropColumn tableName="OUser" columnName="ProjectID"/>
+        <dropColumn tableName="OUser" columnName="role"/>
+        <dropColumn tableName="OUser" columnName="email"/>
+        <dropColumn tableName="OUser" columnName="password"/>
+        <dropColumn tableName="OUser" columnName="firstName"/>
+        <dropColumn tableName="OUser" columnName="middleName"/>
+        <dropColumn tableName="OUser" columnName="lastName"/>
+        <dropColumn tableName="OUser" columnName="userName"/>
+        <addColumn tableName="OUser">
+            <column name="USER_KEY" type="BIGINT(20)" beforeColumn="token">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseColumnNames="USER_KEY" baseTableName="OUser" constraintName="fk_ouser_user_key" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="USER_KEY" referencedTableName="USER_INFO"/>
+        <addColumn tableName="OUser">
+            <column name="ProjectName" type="VARCHAR(256)" afterColumn="dateCreated"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Hara JN" id="20150304 -1">
+        <dropColumn tableName="OUser" columnName="ProjectName"/>
+        <addColumn tableName="Project">
+            <column name="ProjectName" type="VARCHAR(256)" beforeColumn="dateCreated"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Hara J N" id="20150305 -1">
+	<update tableName="LOV">
+            <column name="DisplayName" value="Female"/>
+	    <where>ValueString = '2' and LOVType = '8'</where>
+	</update>        
+	<update tableName="LOV">
+            <column name="DisplayName" value="Transgender male to female"/>
+	    <where>ValueString = '3' and LOVType = '8'</where>
+	</update>
+	<update tableName="LOV">
+            <column name="DisplayName" value="Transgender female to male"/>
+	    <where>ValueString = '4' and LOVType = '8'</where>
+	</update>        
+        <insert tableName="LOV">
+            <column name="dateCreated" valueDate="now()"/>
+            <column name="userID" valueNumeric="0"/>
+            <column name="isDeleted" valueNumeric="0"/>
+            <column name="LOVType" valueNumeric="8"/>
+            <column name="ValueString" value="5"/>
+            <column name="DisplayName" value="Other"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

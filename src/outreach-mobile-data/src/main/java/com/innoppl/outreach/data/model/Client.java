@@ -18,6 +18,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 /**
  *
@@ -30,25 +32,19 @@ public class Client extends AbstractEntity {
 
     private static final long serialVersionUID = 1L;
 
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @Size(max = 256)
     @Column(name = "FirstName")
     private String firstName;
 
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @Size(max = 256)
     @Column(name = "MiddleName")
     private String middleName;
 
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @Size(max = 256)
     @Column(name = "LastName")
     private String lastName;
 
-    @Size(min = 1, max = 45)
+    @Size(max = 45)
     @Column(name = "NameSuffix")
     private String nameSuffix;
 
@@ -57,9 +53,7 @@ public class Client extends AbstractEntity {
     @Column(name = "NameDataQuality")
     private Integer nameDataQuality;
 
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @Size(max = 45)
     @Column(name = "SSN")
     private String ssn;
 
@@ -68,12 +62,13 @@ public class Client extends AbstractEntity {
     @Column(name = "SSNDataQuality")
     private Integer sSNDataQuality;
 
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "DOB")
     @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso=ISO.DATE)
     private Date dob;
 
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "DOBDataQuality")
     private Integer dobDataQuality;
 
@@ -91,6 +86,8 @@ public class Client extends AbstractEntity {
     @Column(name = "Ethnicity")
     private Integer ethnicity;
 
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "Race")
     private Integer race;
 
@@ -113,6 +110,14 @@ public class Client extends AbstractEntity {
     @JsonIgnore
     @Transient
     private Integer age;
+    
+    @JsonIgnore
+    @Transient
+    private String imageData;
+    
+    @Transient
+    private Integer projectID;
+    
 
     public Client() {
     }
@@ -193,6 +198,8 @@ public class Client extends AbstractEntity {
             this.age--;
         }
     }
+    
+    
 
     public Integer getGender() {
         return gender;
@@ -290,4 +297,25 @@ public class Client extends AbstractEntity {
     public void setRace(Integer race) {
         this.race = race;
     }    
+
+    public String getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(String imageData) {
+        this.imageData = imageData;
+    }
+
+    public Integer getProjectID() {
+        return projectID;
+    }
+
+    public void setProjectID(Integer projectID) {
+        this.projectID = projectID;
+    }
+
+
+    
+    
+    
 }

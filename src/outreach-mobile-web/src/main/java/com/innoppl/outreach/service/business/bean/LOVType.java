@@ -33,7 +33,8 @@ public enum LOVType {
     residencePriorLengthOfStay(25),
     ssnDataQuality(26),
     state(27),
-    timesHomelessPastThreeYears(28);
+    timesHomelessPastThreeYears(28),
+    recordType(29);
 
     private LOVType(final int lovTypeId) {
         this.lovTypeId = lovTypeId;

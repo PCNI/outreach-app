@@ -36,12 +36,11 @@
         <headers/>
     </http>
     
-    <beans:bean id="bcryptEncoder" 
-                class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+<!--    <beans:bean id="bcryptEncoder" 
+                class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>-->
     
     <authentication-manager>
         <authentication-provider user-service-ref="outreachUserDetailsService">
-            <password-encoder ref="bcryptEncoder"/>
         </authentication-provider>
     </authentication-manager>
     <beans:bean id="outreachUserDetailsService" 

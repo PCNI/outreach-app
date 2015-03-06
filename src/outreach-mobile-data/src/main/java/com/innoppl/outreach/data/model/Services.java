@@ -1,5 +1,6 @@
 package com.innoppl.outreach.data.model;
 
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
@@ -7,8 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -18,28 +23,38 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @Entity
 @Table(name = "Services")
 public class Services extends AbstractEntity {
+
     private static final long serialVersionUID = 1L;
-   
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "DateProvided")
-    private Integer dateProvided;
-    
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
+    private Date dateProvided;
+
     @Basic(optional = false)
     @NotNull
     @Column(name = "RecordType")
     private Integer recordType;
     
     @Basic(optional = false)
-    @NotNull
+    @Column(name = "TypeProvided")
+    private Integer typeProvided;
+
+    @Size(min = 0, max = 256)
     @Column(name = "OtherTypeProvided")
-    private Integer otherTypeProvided;
-    
-    @Basic(optional = false)
-    @NotNull
+    private String otherTypeProvided;
+
     @Column(name = "SubTypeProvided")
     private Integer subTypeProvided;
-    
+
+    @Column(name = "FAAmount")
+    private Float fAAmount;
+
+    @Column(name = "ReferralOutcome")
+    private Integer referralOutcome;
+
     @JsonIgnore
     @JoinColumn(name = "ProjectEntryID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
@@ -52,11 +67,12 @@ public class Services extends AbstractEntity {
         this.id = id;
     }
 
-    public Integer getDateProvided() {
+    public Date getDateProvided() {
         return dateProvided;
     }
 
-    public void setDateProvided(Integer dateProvided) {
+    @JsonProperty("DateProvided")
+    public void setDateProvided(Date dateProvided) {
         this.dateProvided = dateProvided;
     }
 
@@ -64,15 +80,25 @@ public class Services extends AbstractEntity {
         return recordType;
     }
 
+    @JsonProperty("RecordType")
     public void setRecordType(Integer recordType) {
         this.recordType = recordType;
     }
 
-    public Integer getOtherTypeProvided() {
+    public Integer getTypeProvided() {
+        return typeProvided;
+    }
+
+    public void setTypeProvided(Integer typeProvided) {
+        this.typeProvided = typeProvided;
+    }
+
+    public String getOtherTypeProvided() {
         return otherTypeProvided;
     }
 
-    public void setOtherTypeProvided(Integer otherTypeProvided) {
+    @JsonProperty("DateProvided")
+    public void setOtherTypeProvided(String otherTypeProvided) {
         this.otherTypeProvided = otherTypeProvided;
     }
 
@@ -80,14 +106,34 @@ public class Services extends AbstractEntity {
         return subTypeProvided;
     }
 
+    @JsonProperty("DateProvided")
     public void setSubTypeProvided(Integer subTypeProvided) {
         this.subTypeProvided = subTypeProvided;
     }
 
+    public Float getfAAmount() {
+        return fAAmount;
+    }
+
+    @JsonProperty("DateProvided")
+    public void setfAAmount(Float fAAmount) {
+        this.fAAmount = fAAmount;
+    }
+
+    public Integer getReferralOutcome() {
+        return referralOutcome;
+    }
+
+    @JsonProperty("ReferralOutcome")
+    public void setReferralOutcome(Integer referralOutcome) {
+        this.referralOutcome = referralOutcome;
+    }
+    
     public Enrollment getProjectEntryID() {
         return projectEntryID;
     }
 
+    @JsonProperty("DateProvided")
     public void setProjectEntryID(Enrollment projectEntryID) {
         this.projectEntryID = projectEntryID;
     }

@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -28,6 +29,7 @@ public class DateOfEngagement extends AbstractEntity {
     @NotNull
     @Column(name = "DateOfEngagement")
     @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private Date dateOfEngagement;
     
     @JsonIgnore

@@ -10,15 +10,23 @@ import java.util.Locale;
 public enum Errors {
 
     E_UNKNOWN_ERROR(500),
-    E_USER_NOT_FOUND(402),
-    E_INVALID_PASSWORD(402),
-    E_USER_DISABLED(402),
-    E_LOV_TYPE_NOT_FOUND(500);
+    E_USER_NOT_FOUND(401),
+    E_INVALID_PASSWORD(401),
+    E_USER_DISABLED(401),
+    E_LOV_TYPE_NOT_FOUND(400),
+    E_SAVE_CLIENT_FAILED(400),
+    E_ID_NULL(400),
+    E_ID_NOT_NULL(400),
+    E_PERSONAL_ID_NULL(400),
+    E_PROJ_ENTRY_ID_NULL(400),
+    E_CLIENT_NOT_FOUND(400),
+    E_FILE_UPLOAD_FAILED(500),
+    E_FILE_DELETE_FAILED(500),
+    E_EMAIL_SEND_FAILED(500);
 
     /**
      *
      * @param httpStatusCode
-     * @param resourceName
      */
     private Errors(final int httpStatusCode) {
         this.code = httpStatusCode;

@@ -19,20 +19,6 @@ public class UserDaoImpl extends AbstractJPADao<OUser, Integer>
             = LoggerFactory.getLogger(UserDaoImpl.class);
 
     @Override
-    public OUser findByEmail(String email) {
-        try {
-            return (OUser) getEntityManager().createQuery(
-                    "select u from OUser u where "
-                    + "u.email = :email and u.isDeleted = 0")
-                    .setParameter("email", email)
-                    .getSingleResult();
-        } catch (Exception ex) {
-            LOG.error(LoggerUtils.getStackTrace(ex));
-            return null;
-        }
-    }
-
-    @Override
     public OUser verifyToken(String token) {
         try {
             return (OUser) getEntityManager().createQuery(

@@ -17,9 +17,9 @@
     </bean>
     
     <context:annotation-config />
-
+<!--depends-on="liquibase"-->
     <bean id="entityManagerFactory"
-          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" depends-on="liquibase">
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" >
         <!--<property name="persistenceUnitName" value="outreach-pu-01"/>-->
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter">
@@ -49,10 +49,10 @@
         <property name="maxIdleTime" value="${jdbc.connection.maxIdleTime}"/>                        
     </bean>
 
-    <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
+<!--    <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
         <property name="dataSource" ref="dataSource" />
         <property name="changeLog" value="classpath:/META-INF/liquibase/db.changelog-master.xml" />
-    </bean>
+    </bean>-->
     
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
@@ -66,6 +66,27 @@
         </property>
         <property name="cdnOriginDir">
             <value>${default.cdn.origin.dir}</value>
+        </property>
+        <property name="domainVerifier">
+            <value>${domainVerifier}</value>
+        </property>
+        <property name="smtpHost">
+            <value>${smtp.host}</value>
+        </property>
+        <property name="smtpPort">
+            <value>${smtp.port}</value>
+        </property>
+        <property name="smtpSSLEnabled">
+            <value>${smtp.use.ssl}</value>
+        </property>
+        <property name="smtpUserName">
+            <value>${smtp.username}</value>
+        </property>
+        <property name="smtpPassword">
+            <value>${smtp.password}</value>
+        </property>        
+        <property name="emailFrom">
+            <value>${email.from}</value>
         </property>
     </bean>
 </beans>

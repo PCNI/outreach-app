@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -33,16 +34,13 @@ public class Enrollment extends AbstractEntity {
     @NotNull
     @Column(name = "EntryDate")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date entryDate;
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
+    private Date entryDate = new Date();
 
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @Size(max = 45)
     @Column(name = "HouseholdID")
     private String householdID;
 
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "RelationshipToHoH")
     private Integer relationshipToHoH;
 
@@ -79,6 +77,10 @@ public class Enrollment extends AbstractEntity {
 
     @Column(name = "HousingStatus")
     private Integer housingStatus;
+    
+    @Column(name = "exitDate")
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date exitDate;
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectEntryID")
@@ -92,7 +94,6 @@ public class Enrollment extends AbstractEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectEntryID")
     private List<Disabilities> disabilitiesList;
 
-    @JsonIgnore
     @JoinColumn(name = "PersonalID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Client personalID;
@@ -249,6 +250,14 @@ public class Enrollment extends AbstractEntity {
     @JsonProperty("HousingStatus")
     public void setHousingStatus(Integer housingStatus) {
         this.housingStatus = housingStatus;
+    }
+
+    public Date getExitDate() {
+        return exitDate;
+    }
+
+    public void setExitDate(Date exitDate) {
+        this.exitDate = exitDate;
     }
 
     public List<Services> getServicesList() {

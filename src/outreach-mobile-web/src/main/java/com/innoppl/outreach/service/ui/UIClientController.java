@@ -1,15 +1,13 @@
 package com.innoppl.outreach.service.ui;
 
 import com.innoppl.outreach.data.model.Client;
+import com.innoppl.outreach.service.ServiceException;
 import com.innoppl.outreach.service.business.ClientService;
+import com.innoppl.outreach.service.business.EnrollmentService;
 import com.innoppl.outreach.service.business.bean.ClientSearchRequest;
 import com.innoppl.outreach.service.rest.ExceptionHelper;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +17,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -32,6 +31,9 @@ public class UIClientController {
     
     @Autowired
     private ClientService clientService;
+
+    @Autowired
+    private EnrollmentService enrollmentService;
     
     @ExceptionHandler(Exception.class)
     public ModelAndView handleException(Exception ex, HttpServletRequest request) {
@@ -70,60 +72,49 @@ public class UIClientController {
         return addClientProfile(new ModelAndView(),clientProfile, request);
     }
     
-    @RequestMapping(value = "/ui/addClientProfile", method = RequestMethod.POST)
+    @RequestMapping(value = "/ui/addClientProfile", method = RequestMethod.GET)
     public ModelAndView addClientProfile(final ModelAndView mav, 
             final Client clientProfile, HttpServletRequest request) {
-        
-        try {
-            LOG.debug(clientProfile.toJson());
-        } catch (IOException ex) {
-        }
-        Cookie[] cookies = request.getCookies();
-        String token = null;
-        if (cookies != null){
-            for (Cookie ck : cookies) {
-                if ("access-token".equals(ck.getName())) {
-                     token = ck.getValue();
-                }
-            }
-        }
-        
-        if(token != null){
-            byte[] b4EncodedToken = null;
-            try {
-                b4EncodedToken = Base64.encodeBase64(token.getBytes("UTF-8"));
-            } catch (UnsupportedEncodingException ex) {}
-            mav.addObject("token",b4EncodedToken);
-        }
         mav.addObject("clientProfile", clientProfile);
-        mav.setViewName("profile-edit");
+        mav.setViewName("clientProfile");
         return mav;
     }
     
+    @RequestMapping(value = "/ui/editClientProfile", method = RequestMethod.GET)
+    public ModelAndView editClientProfile(final ModelAndView mav, 
+            final Client clientProfile, HttpServletRequest request,
+            @RequestParam Integer id) {
+        
+        mav.addObject("clientProfile", clientService.lookupClient(id));
+        mav.setViewName("editClientProfile");
+        return mav;
+    }    
+    
     @RequestMapping(value = "/ui/profile", method = RequestMethod.GET)
     public ModelAndView addProfile(final ModelAndView mav, 
-            final Client clientProfile, HttpServletRequest request) {
-        mav.addObject("clientProfile", clientProfile);
+            final Client clientProfile, HttpServletRequest request,
+            @RequestParam Integer id) {
+        mav.addObject("clientProfile", clientService.lookupClient(id));
         mav.setViewName("profile");
         return mav;
     }    
     
     @RequestMapping(value = "/ui/viewProfile", method = RequestMethod.GET)
     public ModelAndView viewProfile(final ModelAndView mav, 
-            final Client clientProfile, HttpServletRequest request) {
-        mav.addObject("clientProfile", clientProfile);
-        mav.addObject("editable", "true");
-        mav.setViewName("profile");
-        return mav;
+            final Client clientProfile, HttpServletRequest request,  
+            @RequestParam Integer id) {
+        try {
+            mav.addObject("clientProfile", clientService.lookupClient(id));
+            //TODO for multiple enrollments
+            mav.addObject("enrollment", enrollmentService.findByPersonalId(id).get(0));
+            mav.setViewName("profile");
+            return mav;
+        } catch (ServiceException ex) {
+
+        }
+        return null;
     }    
     
-    @RequestMapping(value = "/ui/clientinfo", method = RequestMethod.GET)
-    public ModelAndView addClientInfo(final ModelAndView mav, 
-            final Client clientProfile, HttpServletRequest request) {
-        mav.addObject("clientProfile", clientProfile);
-        mav.setViewName("client-information");
-        return mav;
-    } 
     
     @RequestMapping(value = "/ui/healthconditions", method = RequestMethod.GET)
     public ModelAndView addHealthConditions(final ModelAndView mav, 

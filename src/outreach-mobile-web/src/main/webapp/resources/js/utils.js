@@ -3,22 +3,49 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- function configDate(){
-        $( ".dateClass").datepicker({
-                        yearRange: "1930:2010"
-        });
+    function configDate(dateClass){
 
-        var yearRange = $( ".dateClass" ).datepicker( "option", "yearRange" );
-        $( ".dateClass" ).datepicker( "option", "yearRange", "1930:2010" );
+            var optAvgAge = 90;
+            dateClass.datepicker().on("show",function(){
+                $(this).val("01/01/1930").datepicker('update');
+            });
 
-        var changeYear = $( ".dateClass" ).datepicker( "option", "changeYear" );
-        $( ".dateClass" ).datepicker( "option", "changeYear", true );			
+            var changeYear = dateClass.datepicker("option", "changeYear");
+            dateClass.datepicker("option", "changeYear", true);
 
-        $( ".dateClass").datepicker({   
-                dateFormat: "mm/dd/yy"
-        });
+            var dateFormat = dateClass.datepicker("option", "dateFormat");
+            dateClass.datepicker("option", "dateFormat", "mm/dd/yy");		
+                    var dt = new Date();
+                    var range= dt.getFullYear()-optAvgAge+":"+dt.getFullYear();
+            var yearRange = dateClass.datepicker("option", "yearRange");
+            dateClass.datepicker("option", "yearRange", range);		
 
-        var dateFormat = $( ".dateClass" ).datepicker( "option", "dateFormat" );
-        // Setter
-        $( ".dateClass" ).datepicker( "option", "dateFormat", "mm/dd/yy" );
- }
+     }
+
+ 
+    function OformatDate(millisec){
+          var dobDt = new Date();
+          dobDt.setTime(millisec);
+          var day = ("0" + dobDt.getDate()).slice(-2);
+          var month = ("0" + (dobDt.getMonth() + 1)).slice(-2);
+          var fmtDate = dobDt.getFullYear()+"-"+(month)+"-"+(day) ;
+          return fmtDate;
+    }
+    
+    function OformatStrDate(strDate){
+          var dobDt = new Date(strDate);
+          var day = ("0" + dobDt.getDate()).slice(-2);
+          var month = ("0" + (dobDt.getMonth() + 1)).slice(-2);
+          var fmtDate = dobDt.getFullYear()+"-"+(month)+"-"+(day) ;
+          return fmtDate;
+    }
+    
+    function checkForEmpty(str){
+        if(str){
+            return str;
+        }else{
+            return -1;
+        }
+    }
+    
+

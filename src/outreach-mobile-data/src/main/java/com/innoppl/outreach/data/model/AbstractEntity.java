@@ -17,6 +17,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
@@ -41,7 +42,7 @@ public abstract class AbstractEntity implements Serializable {
     @NotNull
     @Column(name = "dateCreated")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dateCreated;
+    private Date dateCreated = new Date();
     
     @JsonIgnore
     @Column(name = "dateDeleted")
@@ -57,7 +58,7 @@ public abstract class AbstractEntity implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "userID")
-    private Integer userID;
+    private Integer userID = 0;
     @Basic(optional = false)
     
     @JsonIgnore
@@ -74,6 +75,7 @@ public abstract class AbstractEntity implements Serializable {
         return id;
     }
 
+    @JsonProperty("ID")
     public void setId(Integer id) {
         this.id = id;
     }

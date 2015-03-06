@@ -27,25 +27,17 @@ public class Disabilities extends AbstractEntity {
     @Column(name = "DisabilityType")
     private Integer disabilityType;
 
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "DisabilityResponse")
     private Integer disabilityResponse;
 
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "IndefiniteAndImpairs")
     private Integer indefiniteAndImpairs;
 
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "DocumentationOnFile")
     private Integer documentationOnFile;
 
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "ReceivingServices")
-    private int receivingServices;
+    private Integer receivingServices;
 
     @Column(name = "PATHHowConfirmed")
     private Integer pATHHowConfirmed;
@@ -61,10 +53,11 @@ public class Disabilities extends AbstractEntity {
     public Disabilities() {
     }
 
-    public Disabilities(Integer id) {
-        this.id = id;
+    public Disabilities(Integer disabilityType, Enrollment projectEntryID) {
+        this.disabilityType = disabilityType;
+        this.projectEntryID = projectEntryID;
     }
-
+    
     public Integer getDisabilityType() {
         return disabilityType;
     }
@@ -101,12 +94,12 @@ public class Disabilities extends AbstractEntity {
         this.documentationOnFile = documentationOnFile;
     }
 
-    public int getReceivingServices() {
+    public Integer getReceivingServices() {
         return receivingServices;
     }
 
     @JsonProperty("ReceivingServices")
-    public void setReceivingServices(int receivingServices) {
+    public void setReceivingServices(Integer receivingServices) {
         this.receivingServices = receivingServices;
     }
 

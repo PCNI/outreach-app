@@ -3,7 +3,7 @@
 <%@page session="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -11,18 +11,18 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styles.css">
         <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/jquery.mobile-1.4.5.min.css">
+        <script src="${contextPath}/resources/js/jquery.mobile-1.4.5.min.js"></script>
         <script src="${contextPath}/resources/js/jquery.js"></script>
-        <script src="${contextPath}/resources/js/jquery.mobile-1.4.5.js"></script>
     </head>
 
     <body>
-        <div data-role="page">
+        <div data-role="page" id="main-page">
             <div data-role="header" class="mheader"> 
-                <a class="iconbar ui-nodisc-icon " href="#menu" data-role="button" data-theme="c" data-rel="back" data-inline="true" data-icon="bars"> &nbsp; </a>
+                <a class="iconbar ui-nodisc-icon " href="#main-page-menu" data-role="button" data-theme="c" data-rel="back" data-inline="true" data-icon="bars"> &nbsp; </a>
                 <h1>Search</h1>
 
             </div>
-            <div data-role="panel" id="menu" data-display="push">
+            <div data-role="panel" id="main-page-menu" data-display="push" class="push-menu">
                 <div class="ui-panel-inner">
                     <h3>Menu</h3>
                     <ul data-role="listview" class="mainMenu">
@@ -38,10 +38,10 @@
 
                     <div class="loginform">
                         <div class="ui-field-contain">
-                            <input type="text" name="firstName" id="firstName" placeholder="First Name">
-                            <input type="text" name="lastName" id="lastName" placeholder="Last Name">
-                            <input type="text" name="ssn" id="ssn" placeholder="Social Security #">
-                            <input type="text" name="personalId" id="personalId" placeholder="Client Key">
+                            <input type="text" name="firstName" placeholder="First Name">
+                            <input type="text" name="lastName" placeholder="Last Name">
+                            <input type="text" name="ssn" placeholder="Social Security #">
+                            <input type="text" name="personalId" placeholder="Client Key">
                             <div class="ui-grid-a mtp20">
                                 <div class="ui-block-a">
                                     <label>Age Range</label>

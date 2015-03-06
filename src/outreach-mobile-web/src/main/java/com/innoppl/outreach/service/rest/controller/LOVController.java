@@ -30,9 +30,28 @@ public class LOVController {
      */
     @RequestMapping(value = "/{type}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseWrapper<LOV> lookupClient(final @PathVariable String type) {
+    public ResponseWrapper<LOV> findAllLOVsByType(final @PathVariable String type) {
         try {
             List<LOV> lovList = lovService.findAllForType(type);
+            return new ResponseWrapper<>(null, lovList);
+        } catch (ServiceException ex) {
+            return new ResponseWrapper<>("en", ex);
+        }
+    }
+    
+    /**
+     *
+     * @param type
+     * @param value
+     * @return
+     */
+    @RequestMapping(value = "/{type}/{value}", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseWrapper<LOV> findLOVByTypeAndValue(
+            final @PathVariable String type,
+            final @PathVariable String value) {
+        try {
+            LOV lovList = lovService.findByTypeAndValue(type, value);
             return new ResponseWrapper<>(null, lovList);
         } catch (ServiceException ex) {
             return new ResponseWrapper<>("en", ex);

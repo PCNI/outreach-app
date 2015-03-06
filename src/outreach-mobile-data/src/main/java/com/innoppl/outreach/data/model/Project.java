@@ -21,6 +21,9 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 public class Project extends AbstractEntity {
     private static final long serialVersionUID = 1L;
     
+    @Column(name = "ProjectName")
+    private String projectName;
+    
     @Column(name = "ContinuumProject")
     private Integer continuumProject;
     
@@ -34,10 +37,6 @@ public class Project extends AbstractEntity {
     
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectID")
-    private List<OUser> userList;
-    
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectID")
     private List<Enrollment> enrollmentList;
 
     public Project() {
@@ -45,6 +44,14 @@ public class Project extends AbstractEntity {
 
     public Project(Integer id) {
         this.id = id;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
     public Integer getContinuumProject() {
@@ -69,14 +76,6 @@ public class Project extends AbstractEntity {
 
     public void setOrganizationID(Organization organizationID) {
         this.organizationID = organizationID;
-    }
-
-    public List<OUser> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<OUser> userList) {
-        this.userList = userList;
     }
 
     public List<Enrollment> getEnrollmentList() {

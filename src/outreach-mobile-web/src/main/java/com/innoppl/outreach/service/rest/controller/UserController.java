@@ -1,11 +1,14 @@
 package com.innoppl.outreach.service.rest.controller;
 
-import com.innoppl.outreach.data.model.OUser;
-import com.innoppl.outreach.service.Messages;
+import com.innoppl.outreach.data.model.UserInfo;
 import com.innoppl.outreach.service.ServiceException;
 import com.innoppl.outreach.service.business.UserService;
 import com.innoppl.outreach.service.rest.ResponseWrapper;
 import com.innoppl.outreach.service.rest.controller.beans.LoginRequest;
+import com.innoppl.outreach.service.rest.controller.beans.LoginResponse;
+import java.io.IOException;
+import java.io.Serializable;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,17 +30,27 @@ public class UserController {
 
     @RequestMapping(value = "/auth", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseWrapper<OUser> authenticate(
+    public LoginResponse authenticate(
             final @RequestBody LoginRequest loginRequest,
             final @RequestParam(required = false,
-                    defaultValue = "en") String locale) {
-        final OUser oUser;
+                    defaultValue = "en") String locale,
+            final HttpServletResponse response) {
+        final LoginResponse loginResponse = new LoginResponse();
         try {
-            oUser = userService.authenticate(loginRequest.getEmail(),
+            final UserInfo userInfo = userService.authenticate(loginRequest.getUserName(),
                     loginRequest.getPassword());
-            return new ResponseWrapper<>(Messages.M_SUCCESS_LOGIN, locale, oUser);
+            //loginResponse.setAccess_token(oUser.getToken());
+            //loginResponse.setExpires_in(oUser.getTokenExpiry());
         } catch (ServiceException ex) {
-            return new ResponseWrapper<>(locale, ex);
+            final ResponseWrapper<Serializable> responseWrapper
+                    = new ResponseWrapper<>("en", ex);
+            try {
+                response.sendError(responseWrapper.getHeader().getStatus(),
+                        responseWrapper.getHeader().getMessage());
+            } catch (IOException ex1) {
+                //Ignore Error;
+            }
         }
+        return loginResponse;
     }
 }
